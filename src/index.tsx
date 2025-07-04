@@ -1,9 +1,13 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { Desktop } from "./screens/Desktop";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+import '../tailwind.css';
 
-createRoot(document.getElementById("app") as HTMLElement).render(
-  <StrictMode>
-    <Desktop />
-  </StrictMode>,
+ReactDOM.createRoot(document.getElementById('app')!).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
 );
