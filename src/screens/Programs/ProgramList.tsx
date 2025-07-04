@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search } from 'lucide-react';
 import { ProgramCard } from '../../components/ui/ProgramCard';
 import { Pagination } from '../../components/ui/Pagination';
@@ -11,10 +11,11 @@ import { RequestProgramModal } from '../../components/ui/RequestProgramModal';
 
 export const ProgramList = (): JSX.Element => {
   const { category } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
 
   // Filter providers based on route category, show all if no category selected
   const programApps = category
-    ? providers.filter((provider) => provider.category.toLowerCase() === category.toLowerCase())
+    ? providers.filter((provider) => provider.category.toLowerCase() === category?.toLowerCase())
     : providers;
 
   const { currentItems, currentPage, totalPages, searchTerm, setSearchTerm, setCurrentPage, filteredItems } =
@@ -22,6 +23,15 @@ export const ProgramList = (): JSX.Element => {
       items: programApps,
       itemsPerPage: 9,
     });
+
+  useEffect(() => {
+    // Simulate data loading
+    setIsLoading(true);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [category]);
 
   // State for QR Modal
   const [selectedProvider, setSelectedProvider] = useState<null | {
@@ -55,6 +65,26 @@ export const ProgramList = (): JSX.Element => {
   const handleCloseRequestModal = () => {
     setIsRequestModalOpen(false);
   };
+
+  if (isLoading) {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[...Array(6)].map((_, index) => (
+          <div key={index} className="bg-white rounded-xl border border-gray-200 p-6 animate-pulse">
+            <div className="flex items-center space-x-4 mb-5">
+              <div className="w-12 h-12 bg-gray-200 rounded-xl"></div>
+              <div>
+                <div className="h-4 w-24 bg-gray-200 rounded mb-2"></div>
+                <div className="h-3 w-16 bg-gray-200 rounded"></div>
+              </div>
+            </div>
+            <div className="h-4 w-3/4 bg-gray-200 rounded mb-4"></div>
+            <div className="h-10 bg-gray-200 rounded-lg"></div>
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div>
