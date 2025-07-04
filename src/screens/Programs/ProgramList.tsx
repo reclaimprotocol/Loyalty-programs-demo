@@ -12,8 +12,10 @@ import { RequestProgramModal } from '../../components/ui/RequestProgramModal';
 export const ProgramList = (): JSX.Element => {
   const { category } = useParams();
 
-  // Filter providers based on route category
-  const programApps = providers.filter((provider) => provider.category.toLowerCase() === category?.toLowerCase());
+  // Filter providers based on route category, show all if no category selected
+  const programApps = category
+    ? providers.filter((provider) => provider.category.toLowerCase() === category.toLowerCase())
+    : providers;
 
   const { currentItems, currentPage, totalPages, searchTerm, setSearchTerm, setCurrentPage, filteredItems } =
     usePaginatedSearch({
@@ -26,13 +28,19 @@ export const ProgramList = (): JSX.Element => {
     name: string;
     description: string;
     providerId: string;
+    logo: string;
   }>(null);
 
   // State for Request Modal
   const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
 
-  const handleTryNow = (provider: typeof selectedProvider) => {
-    setSelectedProvider(provider);
+  const handleTryNow = (app: (typeof providers)[0]) => {
+    setSelectedProvider({
+      name: app.name,
+      description: `${app.name} loyalty program`,
+      providerId: app.providerId,
+      logo: app.logoUrl,
+    });
   };
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,7 +66,7 @@ export const ProgramList = (): JSX.Element => {
             type="text"
             value={searchTerm}
             onChange={handleSearch}
-            placeholder={`Search ${category?.toLowerCase()} programs...`}
+            placeholder={category ? `Search ${category.toLowerCase()} programs...` : 'Search all programs...'}
             className="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-xl text-sm
               focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600
               placeholder:text-gray-400"
@@ -66,7 +74,8 @@ export const ProgramList = (): JSX.Element => {
         </div>
         {filteredItems.length > 0 && (
           <p className="mt-3 text-sm text-gray-500">
-            Found {filteredItems.length} {category?.toLowerCase()} program{filteredItems.length !== 1 ? 's' : ''}
+            Found {filteredItems.length} {category ? `${category.toLowerCase()} ` : ''}program
+            {filteredItems.length !== 1 ? 's' : ''}
           </p>
         )}
       </div>
@@ -83,21 +92,17 @@ export const ProgramList = (): JSX.Element => {
                 description={`${app.name} loyalty program`}
                 logo={app.logoUrl}
                 providerId={app.providerId}
-                onTryNow={() =>
-                  handleTryNow({
-                    name: app.name,
-                    description: `${app.name} loyalty program`,
-                    providerId: app.providerId,
-                  })
-                }
+                onTryNow={() => handleTryNow(app)}
               />
             ))}
           </div>
 
-          {/* Pagination */}
-          {totalPages > 1 && (
-            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
-          )}
+          {/* Pagination - Always show if there are multiple pages */}
+          <div className="mt-8">
+            {totalPages > 1 && (
+              <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
+            )}
+          </div>
         </>
       ) : (
         <div className="bg-white border border-gray-100 rounded-xl p-8 text-center">
@@ -130,7 +135,12 @@ export const ProgramList = (): JSX.Element => {
 
       {/* QR Modal */}
       {selectedProvider && (
-        <QRModal isOpen={!!selectedProvider} onClose={() => setSelectedProvider(null)} provider={selectedProvider} />
+        <QRModal
+          isOpen={!!selectedProvider}
+          onClose={() => setSelectedProvider(null)}
+          provider={selectedProvider}
+          requestUrl={null}
+        />
       )}
 
       {/* Bottom request section - only show when there are items */}

@@ -5,22 +5,22 @@ interface ProgramCardProps {
   id: string;
   name: string;
   description: string;
-  category: string;
-  logoUrl: string;
+  logo: string;
   providerId: string;
-  onTryNow: (providerId: string) => void;
+  onTryNow: () => void;
   className?: string;
 }
 
 export const ProgramCard = ({
   name,
   description,
-  category,
-  logoUrl,
+  logo,
   providerId,
   onTryNow,
   className,
 }: ProgramCardProps): JSX.Element => {
+  const [imageError, setImageError] = React.useState(false);
+
   return (
     <div
       className={cn(
@@ -41,16 +41,21 @@ export const ProgramCard = ({
             className="w-12 h-12 rounded-xl border border-gray-100 overflow-hidden flex-shrink-0
               bg-white flex items-center justify-center shadow-sm"
           >
-            <img src={logoUrl} alt={`${name} logo`} className="w-8 h-8 object-contain" />
+            {!imageError ? (
+              <img
+                src={logo}
+                alt={`${name} logo`}
+                className="w-8 h-8 object-contain"
+                onError={() => setImageError(true)}
+              />
+            ) : (
+              <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                <span className="text-gray-400 text-xs font-medium">{name.substring(0, 2).toUpperCase()}</span>
+              </div>
+            )}
           </div>
           <div>
             <h3 className="text-base font-semibold text-gray-900 mb-1">{name}</h3>
-            <span
-              className="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm 
-                font-medium bg-gray-100 text-gray-800"
-            >
-              {category}
-            </span>
           </div>
         </div>
 
@@ -59,7 +64,7 @@ export const ProgramCard = ({
 
         {/* Connect Button */}
         <button
-          onClick={() => onTryNow(providerId)}
+          onClick={onTryNow}
           className="w-full px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white
             rounded-lg text-sm font-medium transition-colors duration-200
             focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:ring-offset-2"
