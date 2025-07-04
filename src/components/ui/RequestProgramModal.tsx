@@ -34,8 +34,8 @@ ${formData.notes ? `\nAdditional Notes:\n${formData.notes}` : ''}
 
 Request received on ${new Date().toLocaleString()}`;
 
-      // Send to Slack
-      await sendSlackMessage('C08NQC09Z99', message);
+      // Send to Slack - marketing channel
+      await sendSlackMessage('C091PL9R0HM', message);
       setIsSuccess(true);
 
       // Reset form

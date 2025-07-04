@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import QRCode from 'react-qr-code';
 import { Modal } from './Modal';
-import { Camera, LogIn, Clock, X, Shield } from 'lucide-react';
+import { Camera, LogIn, Clock, X, Shield, ExternalLink } from 'lucide-react';
 import { ReclaimProofRequest } from '@reclaimprotocol/js-sdk';
 import { JSONTree } from 'react-json-tree';
 
@@ -19,7 +19,6 @@ interface QRModalProps {
 
 export const QRModal = ({ isOpen, onClose, provider }: QRModalProps) => {
   const [isLoading, setIsLoading] = useState(true);
-  const qrValue = `reclaim-loyalty://${provider.providerId}`;
 
   const [requestUrl, setRequestUrl] = useState<string | null>(null);
   const [proofs, setProofs] = useState<any[]>([]);
@@ -141,6 +140,10 @@ export const QRModal = ({ isOpen, onClose, provider }: QRModalProps) => {
     },
   ];
 
+  const isMobileDevice = () => {
+    return /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase());
+  };
+
   const renderContent = () => {
     if (proofs.length > 0) {
       return (
@@ -149,22 +152,22 @@ export const QRModal = ({ isOpen, onClose, provider }: QRModalProps) => {
             <JSONTree
               data={proofs[0]}
               theme={{
-                base00: '#ffffff', // background
-                base01: '#2a2a2a', // background highlights
-                base02: '#3a3a3a', // background highlights 2
-                base03: '#666666', // comments & punctuation
-                base04: '#999999', // properties & labels
-                base05: '#333333', // main text
-                base06: '#222222', // text highlights
-                base07: '#111111', // text highlights 2
-                base08: '#e91e63', // null, undefined
-                base09: '#f57c00', // numbers & booleans
-                base0A: '#ffc107', // strings
-                base0B: '#4caf50', // arrays & objects
-                base0C: '#00bcd4', // dates
-                base0D: '#2196f3', // keys & symbols
-                base0E: '#9c27b0', // regex
-                base0F: '#795548', // functions
+                base00: '#ffffff',
+                base01: '#2a2a2a',
+                base02: '#3a3a3a',
+                base03: '#666666',
+                base04: '#999999',
+                base05: '#333333',
+                base06: '#222222',
+                base07: '#111111',
+                base08: '#e91e63',
+                base09: '#f57c00',
+                base0A: '#ffc107',
+                base0B: '#4caf50',
+                base0C: '#00bcd4',
+                base0D: '#2196f3',
+                base0E: '#9c27b0',
+                base0F: '#795548',
               }}
               hideRoot
               shouldExpandNode={() => true}
@@ -181,22 +184,49 @@ export const QRModal = ({ isOpen, onClose, provider }: QRModalProps) => {
     }
 
     if (requestUrl) {
-      return (
-        <div className="flex flex-col items-center">
-          <div className="bg-white p-4 rounded-xl shadow-sm">
-            <QRCode value={requestUrl} size={200} />
-          </div>
-          <p className="mt-4 text-sm text-gray-500">Scan the QR code to verify your credentials</p>
-          <div className="mt-6">
-            <div className="animate-pulse flex space-x-2 justify-center">
-              <div className="h-2 w-2 bg-indigo-600 rounded-full"></div>
-              <div className="h-2 w-2 bg-indigo-600 rounded-full"></div>
-              <div className="h-2 w-2 bg-indigo-600 rounded-full"></div>
+      if (isMobileDevice()) {
+        return (
+          <div className="flex flex-col items-center text-center">
+            <button
+              onClick={() => window.open(requestUrl, '_blank')}
+              className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white rounded-lg
+                hover:bg-indigo-700 transition-colors text-base font-medium gap-2
+                focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:ring-offset-2"
+            >
+              <ExternalLink className="w-5 h-5" />
+              Start Verification
+            </button>
+            <p className="mt-4 text-sm text-gray-500 max-w-[250px]">
+              Click the button above to start the verification process for your {provider.name} account
+            </p>
+            <div className="mt-6">
+              <div className="animate-pulse flex space-x-2 justify-center">
+                <div className="h-2 w-2 bg-indigo-600 rounded-full"></div>
+                <div className="h-2 w-2 bg-indigo-600 rounded-full"></div>
+                <div className="h-2 w-2 bg-indigo-600 rounded-full"></div>
+              </div>
+              <p className="text-sm text-gray-500 mt-2">Waiting for verification...</p>
             </div>
-            <p className="text-sm text-gray-500 mt-2">Waiting for proofs...</p>
           </div>
-        </div>
-      );
+        );
+      } else {
+        return (
+          <div className="flex flex-col items-center">
+            <div className="bg-white p-4 rounded-xl shadow-sm">
+              <QRCode value={requestUrl} size={200} />
+            </div>
+            <p className="mt-4 text-sm text-gray-500">Scan the QR code to verify your credentials</p>
+            <div className="mt-6">
+              <div className="animate-pulse flex space-x-2 justify-center">
+                <div className="h-2 w-2 bg-indigo-600 rounded-full"></div>
+                <div className="h-2 w-2 bg-indigo-600 rounded-full"></div>
+                <div className="h-2 w-2 bg-indigo-600 rounded-full"></div>
+              </div>
+              <p className="text-sm text-gray-500 mt-2">Waiting for proofs...</p>
+            </div>
+          </div>
+        );
+      }
     }
 
     return (
@@ -206,7 +236,7 @@ export const QRModal = ({ isOpen, onClose, provider }: QRModalProps) => {
           <div className="h-2 w-2 bg-indigo-600 rounded-full"></div>
           <div className="h-2 w-2 bg-indigo-600 rounded-full"></div>
         </div>
-        <p className="text-gray-500 mt-2">Generating QR code...</p>
+        <p className="text-gray-500 mt-2">Preparing verification...</p>
       </div>
     );
   };
