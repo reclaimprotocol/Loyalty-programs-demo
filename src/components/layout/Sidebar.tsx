@@ -28,7 +28,7 @@ export const Sidebar = (): JSX.Element => {
           <div className="flex-1 flex flex-col min-h-0">
             {/* Section Header */}
             <div className="px-6 pt-6 pb-4">
-              <h2 className="text-sm font-medium text-gray-900">All Programs</h2>
+              <h2 className="text-sm font-medium text-gray-900">All Loyalty Programs</h2>
             </div>
 
             {/* Program Categories */}

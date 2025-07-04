@@ -149,22 +149,22 @@ export const QRModal = ({ isOpen, onClose, provider }: QRModalProps) => {
             <JSONTree
               data={proofs[0]}
               theme={{
-                base00: 'transparent',
-                base01: '#383830',
-                base02: '#49483e',
-                base03: '#75715e',
-                base04: '#a59f85',
-                base05: '#f8f8f2',
-                base06: '#f5f4f1',
-                base07: '#f9f8f5',
-                base08: '#f92672',
-                base09: '#fd971f',
-                base0A: '#f4bf75',
-                base0B: '#a6e22e',
-                base0C: '#a1efe4',
-                base0D: '#66d9ef',
-                base0E: '#ae81ff',
-                base0F: '#cc6633',
+                base00: '#ffffff', // background
+                base01: '#2a2a2a', // background highlights
+                base02: '#3a3a3a', // background highlights 2
+                base03: '#666666', // comments & punctuation
+                base04: '#999999', // properties & labels
+                base05: '#333333', // main text
+                base06: '#222222', // text highlights
+                base07: '#111111', // text highlights 2
+                base08: '#e91e63', // null, undefined
+                base09: '#f57c00', // numbers & booleans
+                base0A: '#ffc107', // strings
+                base0B: '#4caf50', // arrays & objects
+                base0C: '#00bcd4', // dates
+                base0D: '#2196f3', // keys & symbols
+                base0E: '#9c27b0', // regex
+                base0F: '#795548', // functions
               }}
               hideRoot
               shouldExpandNode={() => true}
