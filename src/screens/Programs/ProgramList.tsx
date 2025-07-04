@@ -1,28 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Search } from 'lucide-react';
 import { ProgramCard } from '../../components/ui/ProgramCard';
 import { Pagination } from '../../components/ui/Pagination';
 import { RequestProgram } from '../../components/ui/RequestProgram';
 import { usePaginatedSearch } from '../../hooks/usePaginatedSearch';
 import { providers } from '../../data/loyalty-programs';
+import { useParams } from 'react-router-dom';
+import { QRModal } from '../../components/ui/QRModal';
+import { RequestProgramModal } from '../../components/ui/RequestProgramModal';
 
-export const AirlinesProgram = (): JSX.Element => {
-  // Filter providers to get only Airlines
-  const airlineApps = providers.filter((provider) => provider.category === 'Airlines');
+export const ProgramList = (): JSX.Element => {
+  const { category } = useParams();
+
+  // Filter providers based on route category
+  const programApps = providers.filter((provider) => provider.category.toLowerCase() === category?.toLowerCase());
 
   const { currentItems, currentPage, totalPages, searchTerm, setSearchTerm, setCurrentPage, filteredItems } =
     usePaginatedSearch({
-      items: airlineApps,
+      items: programApps,
       itemsPerPage: 9,
     });
 
-  const handleTryNow = (providerId: string) => {
-    console.log('Try now clicked for:', providerId);
+  // State for QR Modal
+  const [selectedProvider, setSelectedProvider] = useState<null | {
+    name: string;
+    description: string;
+    providerId: string;
+  }>(null);
+
+  // State for Request Modal
+  const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
+
+  const handleTryNow = (provider: typeof selectedProvider) => {
+    setSelectedProvider(provider);
   };
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearchTerm(value);
+  };
+
+  const handleRequestProgram = () => {
+    setIsRequestModalOpen(true);
+  };
+
+  const handleCloseRequestModal = () => {
+    setIsRequestModalOpen(false);
   };
 
   return (
@@ -35,7 +58,7 @@ export const AirlinesProgram = (): JSX.Element => {
             type="text"
             value={searchTerm}
             onChange={handleSearch}
-            placeholder="Search airline programs..."
+            placeholder={`Search ${category?.toLowerCase()} programs...`}
             className="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-xl text-sm
               focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600
               placeholder:text-gray-400"
@@ -43,7 +66,7 @@ export const AirlinesProgram = (): JSX.Element => {
         </div>
         {filteredItems.length > 0 && (
           <p className="mt-3 text-sm text-gray-500">
-            Found {filteredItems.length} airline program{filteredItems.length !== 1 ? 's' : ''}
+            Found {filteredItems.length} {category?.toLowerCase()} program{filteredItems.length !== 1 ? 's' : ''}
           </p>
         )}
       </div>
@@ -60,7 +83,13 @@ export const AirlinesProgram = (): JSX.Element => {
                 description={`${app.name} loyalty program`}
                 logo={app.logoUrl}
                 providerId={app.providerId}
-                onTryNow={() => handleTryNow(app.providerId)}
+                onTryNow={() =>
+                  handleTryNow({
+                    name: app.name,
+                    description: `${app.name} loyalty program`,
+                    providerId: app.providerId,
+                  })
+                }
               />
             ))}
           </div>
@@ -81,10 +110,11 @@ export const AirlinesProgram = (): JSX.Element => {
               {searchTerm ? (
                 <>Try adjusting your search or request a new program if you can't find what you're looking for.</>
               ) : (
-                <>No airline programs available at the moment. Request a new one below.</>
+                <>No {category?.toLowerCase()} programs available at the moment. Request a new one below.</>
               )}
             </p>
             <button
+              onClick={handleRequestProgram}
               className="inline-flex items-center px-4 py-2.5 bg-indigo-600 text-white
                 hover:bg-indigo-700 rounded-lg text-sm font-medium transition-colors duration-200
                 focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:ring-offset-2"
@@ -98,8 +128,20 @@ export const AirlinesProgram = (): JSX.Element => {
         </div>
       )}
 
+      {/* QR Modal */}
+      {selectedProvider && (
+        <QRModal isOpen={!!selectedProvider} onClose={() => setSelectedProvider(null)} provider={selectedProvider} />
+      )}
+
       {/* Bottom request section - only show when there are items */}
-      {currentItems.length > 0 && <RequestProgram variant="section" programType="airline" />}
+      {currentItems.length > 0 && (
+        <div className="mt-8">
+          <RequestProgram variant="section" programType={category?.toLowerCase()} onRequest={handleRequestProgram} />
+        </div>
+      )}
+
+      {/* Request Modal */}
+      <RequestProgramModal isOpen={isRequestModalOpen} onClose={handleCloseRequestModal} category={category} />
     </div>
   );
 };

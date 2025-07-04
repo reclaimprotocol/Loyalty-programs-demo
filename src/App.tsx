@@ -1,15 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 import { Desktop } from './screens/Desktop/Desktop';
-import { AirlinesProgram } from './screens/Programs/AirlinesProgram';
-import { EmptyState } from './components/ui/EmptyState';
+import { ProgramList } from './screens/Programs/ProgramList';
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Desktop />}>
-        <Route index element={<EmptyState onRequestProgram={() => {}} />} />
-        <Route path="/programs/airlines" element={<AirlinesProgram />} />
-        {/* Add other program routes as they become available */}
+        <Route path="/programs/:category" element={<ProgramList />} />
       </Route>
     </Routes>
   );

@@ -1,20 +1,8 @@
-import { SearchIcon } from 'lucide-react';
-import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Navbar } from '../../components/layout/Navbar';
 import { Sidebar } from '../../components/layout/Sidebar';
 
 export const Desktop = (): JSX.Element => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Check if device is mobile on component mount
-  useEffect(() => {
-    const checkMobile =
-      /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()) ||
-      (typeof window.orientation !== 'undefined' ? window.orientation : -1) > -1;
-    setIsMobile(checkMobile);
-  }, []);
-
   return (
     <div className="flex h-screen bg-[#f6f9fc] relative overflow-hidden">
       {/* Background Gradient */}

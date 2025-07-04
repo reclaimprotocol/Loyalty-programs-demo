@@ -7,7 +7,8 @@ interface ProgramCardProps {
   description: string;
   category: string;
   logoUrl: string;
-  onTryNow?: () => void;
+  providerId: string;
+  onTryNow: (providerId: string) => void;
   className?: string;
 }
 
@@ -16,6 +17,7 @@ export const ProgramCard = ({
   description,
   category,
   logoUrl,
+  providerId,
   onTryNow,
   className,
 }: ProgramCardProps): JSX.Element => {
@@ -57,7 +59,7 @@ export const ProgramCard = ({
 
         {/* Connect Button */}
         <button
-          onClick={onTryNow}
+          onClick={() => onTryNow(providerId)}
           className="w-full px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white
             rounded-lg text-sm font-medium transition-colors duration-200
             focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:ring-offset-2"
