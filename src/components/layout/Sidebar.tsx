@@ -1,18 +1,16 @@
 import { useLocation, Link } from 'react-router-dom';
-import { LoyaltyProgram, loyaltyPrograms } from '../../data/loyalty-programs';
+import { loyaltyPrograms } from '../../data/loyalty-programs';
 
 interface SidebarProps {
   isSidebarOpen: boolean;
 }
 
-export const Sidebar = ({ isSidebarOpen }: SidebarProps): JSX.Element => {
+export const Sidebar = (): JSX.Element => {
   const location = useLocation();
 
   return (
     <div
-      className={`${
-        isSidebarOpen ? 'w-80' : 'w-0'
-      } transition-all duration-300 bg-white overflow-hidden flex flex-col h-full border-r border-gray-100 relative z-10`}
+      className={`w-80 transition-all duration-300 bg-white overflow-hidden flex flex-col h-full border-r border-gray-100 relative z-10`}
     >
       <div className="flex flex-col h-full">
         {/* Logo Section */}
@@ -34,7 +32,7 @@ export const Sidebar = ({ isSidebarOpen }: SidebarProps): JSX.Element => {
             {loyaltyPrograms.map((program) => {
               const Icon = program.icon;
               const isActive = location.pathname === program.path;
-              const isEnabled = program.id === 'airlines'; // Only airlines enabled for now
+              const isEnabled = program.id === 'airlines' || program.id === 'hotels'; // Only airlines enabled for now
 
               return (
                 <Link
@@ -65,7 +63,7 @@ export const Sidebar = ({ isSidebarOpen }: SidebarProps): JSX.Element => {
                         <span
                           className={`inline-flex px-1.5 py-0.5 rounded-full text-[11px] font-medium 
                           whitespace-nowrap
-                          ${isActive ? 'bg-white/10 text-white' : 'bg-gray-100 text-gray-600'}`}
+                          ${isActive ? 'bg-white/10 text-white' : 'bg-indigo-50 text-indigo-600'}`}
                         >
                           Coming Soon
                         </span>

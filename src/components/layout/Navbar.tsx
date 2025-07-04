@@ -1,62 +1,38 @@
 import { MenuIcon } from 'lucide-react';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 
-interface NavbarProps {
-  isSidebarOpen: boolean;
-  setIsSidebarOpen: (value: boolean) => void;
-  categoriesCount: number;
-  programsCount: number;
-}
+export const Navbar = (): JSX.Element => {
+  const location = useLocation();
 
-export const Navbar = ({
-  isSidebarOpen,
-  setIsSidebarOpen,
-  categoriesCount,
-  programsCount,
-}: NavbarProps): JSX.Element => {
+  // Function to get the current program name based on route
+  const getCurrentProgramName = () => {
+    const path = location.pathname;
+    if (path === '/programs/airlines') return 'Airlines Programs';
+    if (path === '/programs/hotels') return 'Hotel Programs';
+    if (path === '/programs/credit-cards') return 'Credit Card Programs';
+    return 'Loyalty Programs';
+  };
+
   return (
     <header className="h-[70px] bg-white border-b border-gray-100 px-6 flex items-center justify-between sticky top-0 z-20">
-      <div className="flex items-center gap-6">
-        <button
-          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="inline-flex items-center justify-center w-8 h-8 rounded-lg text-gray-500 
-            hover:bg-gray-50 transition-all"
-        >
-          {isSidebarOpen ? (
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-            <MenuIcon className="h-5 w-5" strokeWidth={1.5} />
-          )}
-        </button>
-
-        <div className="flex items-center gap-5">
-          <h1 className="text-[15px] font-semibold text-gray-900">Loyalty Programs</h1>
-          <div className="flex items-center gap-2.5">
-            <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-50 text-indigo-600">
-              {categoriesCount} Providers
-            </span>
-            <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-600">
-              {programsCount} Programs
-            </span>
-          </div>
+      {/* Left side with menu and title */}
+      <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          <h1 className="text-[15px] font-semibold text-gray-900">{getCurrentProgramName()}</h1>
+          <div className="h-4 w-px bg-gray-200" />
         </div>
       </div>
 
       {/* Right side actions */}
       <div className="flex items-center gap-3">
         <button
-          className="inline-flex items-center justify-center h-8 px-3 rounded-lg text-sm 
-          text-gray-600 hover:bg-gray-50 transition-all gap-2"
+          className="inline-flex items-center px-3 py-1.5 bg-white border border-gray-200 
+            hover:border-indigo-600/30 text-gray-700 hover:text-indigo-600
+            rounded-lg text-sm font-medium transition-colors duration-200
+            focus:outline-none focus:ring-2 focus:ring-indigo-600/20"
         >
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-          Help Center
+          Need Help?
         </button>
         <div className="h-6 w-px bg-gray-100" />
       </div>
