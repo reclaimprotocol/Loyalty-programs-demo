@@ -1,4 +1,4 @@
-import { MenuIcon, X } from 'lucide-react';
+import { MenuIcon, MessageCircle } from 'lucide-react';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -16,6 +16,10 @@ export const Navbar = ({ onMenuClick }: NavbarProps): JSX.Element => {
     if (path === '/programs/hotels') return 'Hotel Programs';
     if (path === '/programs/credit-cards') return 'Credit Card Programs';
     return 'Loyalty Programs';
+  };
+
+  const handleHelpClick = () => {
+    window.open('https://t.me/subhashkarri', '_blank');
   };
 
   return (
@@ -38,11 +42,13 @@ export const Navbar = ({ onMenuClick }: NavbarProps): JSX.Element => {
       {/* Right side actions */}
       <div className="flex items-center gap-3">
         <button
+          onClick={handleHelpClick}
           className="inline-flex items-center px-3 py-1.5 bg-white border border-gray-200 
             hover:border-indigo-600/30 text-gray-700 hover:text-indigo-600
             rounded-lg text-sm font-medium transition-colors duration-200
             focus:outline-none focus:ring-2 focus:ring-indigo-600/20"
         >
+          <MessageCircle className="w-4 h-4 mr-2" strokeWidth={1.5} />
           Need Help?
         </button>
         <div className="h-6 w-px bg-gray-100" />
