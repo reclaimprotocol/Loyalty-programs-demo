@@ -15,10 +15,10 @@ export const Sidebar = (): JSX.Element => {
 
   return (
     <>
-      <div className="w-80 transition-all duration-300 bg-white overflow-hidden flex flex-col h-full border-r border-gray-100 relative z-10">
+      <div className="w-[280px] md:w-80 h-full bg-white overflow-hidden flex flex-col border-r border-gray-100 relative z-10">
         <div className="flex flex-col h-full">
           {/* Logo Section */}
-          <div className="px-6 h-[70px] flex items-center border-b border-gray-50">
+          <div className="px-4 md:px-6 h-[70px] flex items-center border-b border-gray-50">
             <Link to="/">
               <img src="/vector.svg" alt="Reclaim Logo" className="h-[22px]" />
             </Link>

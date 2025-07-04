@@ -1,8 +1,12 @@
-import { MenuIcon } from 'lucide-react';
+import { MenuIcon, X } from 'lucide-react';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-export const Navbar = (): JSX.Element => {
+interface NavbarProps {
+  onMenuClick: () => void;
+}
+
+export const Navbar = ({ onMenuClick }: NavbarProps): JSX.Element => {
   const location = useLocation();
 
   // Function to get the current program name based on route
@@ -18,9 +22,16 @@ export const Navbar = (): JSX.Element => {
     <header className="h-[70px] bg-white border-b border-gray-100 px-6 flex items-center justify-between sticky top-0 z-20">
       {/* Left side with menu and title */}
       <div className="flex items-center gap-4">
+        <button
+          onClick={onMenuClick}
+          className="lg:hidden inline-flex items-center justify-center w-8 h-8 rounded-lg text-gray-500 
+            hover:bg-gray-50 transition-all"
+        >
+          <MenuIcon className="h-5 w-5" strokeWidth={1.5} />
+        </button>
         <div className="flex items-center gap-3">
           <h1 className="text-[15px] font-semibold text-gray-900">{getCurrentProgramName()}</h1>
-          <div className="h-4 w-px bg-gray-200" />
+          <div className="hidden sm:block h-4 w-px bg-gray-200" />
         </div>
       </div>
 
