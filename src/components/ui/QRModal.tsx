@@ -3,7 +3,7 @@ import QRCode from 'react-qr-code';
 import { Modal } from './Modal';
 import { Camera, LogIn, Clock, X, Shield } from 'lucide-react';
 import { ReclaimProofRequest } from '@reclaimprotocol/js-sdk';
-import ReactJson from 'react-json-view';
+import { JSONTree } from 'react-json-tree';
 
 interface QRModalProps {
   isOpen: boolean;
@@ -146,15 +146,28 @@ export const QRModal = ({ isOpen, onClose, provider }: QRModalProps) => {
       return (
         <div className="flex flex-col items-center w-full">
           <div className="w-full bg-gray-50 rounded-xl p-4 overflow-auto max-h-[400px]">
-            <ReactJson
-              src={proofs[0]}
-              theme="rjv-default"
-              style={{ backgroundColor: 'transparent' }}
-              displayDataTypes={false}
-              enableClipboard={true}
-              collapsed={2}
-              collapseStringsAfterLength={30}
-              displayObjectSize={false}
+            <JSONTree
+              data={proofs[0]}
+              theme={{
+                base00: 'transparent',
+                base01: '#383830',
+                base02: '#49483e',
+                base03: '#75715e',
+                base04: '#a59f85',
+                base05: '#f8f8f2',
+                base06: '#f5f4f1',
+                base07: '#f9f8f5',
+                base08: '#f92672',
+                base09: '#fd971f',
+                base0A: '#f4bf75',
+                base0B: '#a6e22e',
+                base0C: '#a1efe4',
+                base0D: '#66d9ef',
+                base0E: '#ae81ff',
+                base0F: '#cc6633',
+              }}
+              hideRoot
+              shouldExpandNode={() => true}
             />
           </div>
           <button
