@@ -2,9 +2,14 @@ import { Outlet } from 'react-router-dom';
 import { Navbar } from '../../components/layout/Navbar';
 import { Sidebar } from '../../components/layout/Sidebar';
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { RequestProgramModal } from '../../components/ui/RequestProgramModal';
 
 export const Desktop = (): JSX.Element => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
+  const location = useLocation();
+  const currentCategory = location.pathname.split('/').pop();
 
   return (
     <div className="flex h-screen bg-[#f6f9fc] relative overflow-hidden">
@@ -27,7 +32,7 @@ export const Desktop = (): JSX.Element => {
         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
       `}
       >
-        <Sidebar />
+        <Sidebar onRequestProgram={() => setIsRequestModalOpen(true)} />
       </div>
 
       {/* Main Content */}
@@ -44,6 +49,13 @@ export const Desktop = (): JSX.Element => {
           </div>
         </main>
       </div>
+
+      {/* Request Modal - Moved to root level */}
+      <RequestProgramModal
+        isOpen={isRequestModalOpen}
+        onClose={() => setIsRequestModalOpen(false)}
+        category={currentCategory}
+      />
     </div>
   );
 };

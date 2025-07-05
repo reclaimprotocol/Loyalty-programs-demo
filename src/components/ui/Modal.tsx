@@ -26,7 +26,10 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto">
+    <div
+      className="fixed inset-0 z-[100] overflow-y-auto"
+      style={{ position: 'fixed', left: 0, top: 0, width: '100vw', height: '100vh' }}
+    >
       <div className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300" onClick={onClose} />
       <div className="flex min-h-full items-center justify-center p-4">
         <div
