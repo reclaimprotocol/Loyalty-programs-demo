@@ -15,4 +15,14 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: true,
   },
+  server: {
+    proxy: {
+      '/api/slack': {
+        target: 'https://bot.questbook.xyz',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/slack/, '/send-message'),
+        secure: false, // if you're having SSL issues
+      },
+    },
+  },
 });
