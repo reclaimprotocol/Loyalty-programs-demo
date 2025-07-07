@@ -28,12 +28,15 @@ export const RequestProgramModal = ({ isOpen, onClose, category }: RequestProgra
       const message = `✨ *New Program Request*
 
 *Loyalty Program Name:* ${formData.programName}
-*Provider:* ${formData.providerName}
-*Requester:* ${formData.email}
-${formData.notes ? `\n*Additional Notes:*\n${formData.notes}\n` : ''}
-\n📅 Request received on ${new Date().toLocaleString()}`;
 
-      // Send to Slack - marketing channel
+*Provider:* ${formData.providerName}
+
+*Requester:* ${formData.email}
+
+${
+  formData.notes ? `*Additional Notes:* ${formData.notes}\n\n` : ''
+}📅 Request received on ${new Date().toLocaleString()}`;
+
       await sendSlackMessage('C091PL9R0HM', message);
       setIsSuccess(true);
 
