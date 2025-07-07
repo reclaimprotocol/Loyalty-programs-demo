@@ -12,14 +12,14 @@ export const Navbar = ({ onMenuClick }: NavbarProps): JSX.Element => {
   // Function to get the current program name based on route
   const getCurrentProgramName = () => {
     const path = location.pathname;
-    if (path === '/programs/airlines') return 'Airlines Programs';
-    if (path === '/programs/hotels') return 'Hotel Programs';
-    if (path === '/programs/credit-cards') return 'Credit Card Programs';
+    if (path === '/programs/airlines') return 'Airline Loyalty Programs';
+    if (path === '/programs/hotels') return 'Hotel Loyalty Programs';
+    if (path === '/programs/credit-cards') return 'Credit Card Loyalty Programs';
     return 'Loyalty Programs';
   };
 
   const handleHelpClick = () => {
-    window.open('https://t.me/subhashkarri', '_blank');
+    window.open('http://cal.com/subhash', '_blank');
   };
 
   return (

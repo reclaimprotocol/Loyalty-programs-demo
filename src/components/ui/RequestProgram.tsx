@@ -45,7 +45,7 @@ export const RequestProgram = ({ variant, programType = 'airline', onRequest }: 
             rounded-lg text-sm font-medium transition-colors duration-200
             focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:ring-offset-2"
         >
-          Request New Program
+          Request New Loyalty Program
           <Plus className="ml-2 w-4 h-4" />
         </button>
       </div>

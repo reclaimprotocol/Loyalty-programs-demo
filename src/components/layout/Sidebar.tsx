@@ -8,10 +8,11 @@ interface SidebarProps {
 export const Sidebar = ({ onRequestProgram }: SidebarProps): JSX.Element => {
   const location = useLocation();
 
-  // Get unique categories from providers
-  const enabledCategories = ['Airlines', 'Hotels', 'Exchange', 'Gaming'];
-
-  // Get current category from location
+  // Sort loyalty programs - enabled ones first
+  const sortedLoyaltyPrograms = [...loyaltyPrograms].sort((a, b) => {
+    if (a.isEnabled === b.isEnabled) return 0;
+    return a.isEnabled ? -1 : 1;
+  });
 
   return (
     <div className="w-[280px] md:w-80 h-full bg-white overflow-hidden flex flex-col border-r border-gray-100 relative z-10">
@@ -27,23 +28,22 @@ export const Sidebar = ({ onRequestProgram }: SidebarProps): JSX.Element => {
         <div className="flex-1 flex flex-col min-h-0">
           {/* Section Header */}
           <div className="px-6 pt-6 pb-4">
-            <h2 className="text-sm font-medium text-gray-900">All Loyalty Programs</h2>
+            <h2 className="text-sm font-medium text-gray-900">Loyalty Programs</h2>
           </div>
 
           {/* Program Categories */}
           <div className="flex-1 px-3 overflow-y-auto">
-            {loyaltyPrograms.map((program) => {
+            {sortedLoyaltyPrograms.map((program) => {
               const Icon = program.icon;
               const isActive = location.pathname === `/programs/${program.id}`;
-              const isEnabled = enabledCategories.includes(program.category);
 
               return (
                 <Link
                   key={program.id}
-                  to={isEnabled ? `/programs/${program.id.toLowerCase()}` : '#'}
+                  to={program.isEnabled ? `/programs/${program.id.toLowerCase()}` : '#'}
                   className={`group relative w-full flex items-start px-3 py-2.5 mb-1 rounded-lg transition-all
                     ${isActive ? 'bg-indigo-600' : 'hover:bg-gray-50'}
-                    ${!isEnabled ? 'cursor-default' : ''}`}
+                    ${!program.isEnabled ? 'cursor-default' : ''}`}
                 >
                   {/* Icon */}
                   <div
@@ -62,7 +62,7 @@ export const Sidebar = ({ onRequestProgram }: SidebarProps): JSX.Element => {
                       >
                         {program.name}
                       </span>
-                      {!isEnabled && (
+                      {!program.isEnabled && (
                         <span
                           className="inline-flex px-1.5 py-0.5 rounded-full text-[11px] font-medium 
                           whitespace-nowrap bg-indigo-50 text-indigo-600"
@@ -81,7 +81,7 @@ export const Sidebar = ({ onRequestProgram }: SidebarProps): JSX.Element => {
         {/* Bottom Section */}
         <div className="p-4">
           <div className="bg-gray-50 rounded-xl p-4">
-            <h3 className="text-sm font-medium text-gray-900">Missing a program?</h3>
+            <h3 className="text-sm font-medium text-gray-900">Missing a Loyalty Program?</h3>
             <p className="text-xs text-gray-600 mt-1 mb-3">We'll add it within 24 hours!</p>
             <button
               onClick={onRequestProgram}
@@ -89,7 +89,7 @@ export const Sidebar = ({ onRequestProgram }: SidebarProps): JSX.Element => {
                 hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 
                 focus:ring-indigo-600/20 focus:ring-offset-2"
             >
-              Request Program
+              Request New Loyalty Program
             </button>
           </div>
         </div>

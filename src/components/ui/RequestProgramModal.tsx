@@ -89,7 +89,7 @@ ${
                 <Sparkles className="w-6 h-6 text-indigo-600" />
               </div>
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900">Request New Program</h2>
+                <h2 className="text-2xl font-semibold text-gray-900">Request New Loyalty Program</h2>
                 <p className="mt-1 text-sm text-gray-500">We'll add your requested program within 24 hours</p>
               </div>
             </div>

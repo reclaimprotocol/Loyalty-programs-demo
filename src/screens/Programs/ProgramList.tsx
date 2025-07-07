@@ -9,6 +9,15 @@ import { useParams } from 'react-router-dom';
 import { QRModal } from '../../components/ui/QRModal';
 import { RequestProgramModal } from '../../components/ui/RequestProgramModal';
 
+const getRandomDescription = (brandName: string): string => {
+  const descriptions = [
+    `Prove your ${brandName} status in seconds. No screenshots. No uploads.`,
+    `Elite with ${brandName}? Prove it privately in one click.`,
+    `Instantly verify your ${brandName} membership. Fully private, Zero hassle.`,
+  ];
+  return descriptions[Math.floor(Math.random() * descriptions.length)];
+};
+
 export const ProgramList = (): JSX.Element => {
   const { category } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -47,7 +56,7 @@ export const ProgramList = (): JSX.Element => {
   const handleTryNow = (app: (typeof providers)[0]) => {
     setSelectedProvider({
       name: app.name,
-      description: `${app.name} loyalty program`,
+      description: getRandomDescription(app.name),
       providerId: app.providerId,
       logo: app.logoUrl,
     });
@@ -119,7 +128,7 @@ export const ProgramList = (): JSX.Element => {
                 key={app.providerId}
                 id={app.providerId}
                 name={app.name}
-                description={`${app.name} loyalty program`}
+                description={getRandomDescription(app.name)}
                 logo={app.logoUrl}
                 providerId={app.providerId}
                 onTryNow={() => handleTryNow(app)}
