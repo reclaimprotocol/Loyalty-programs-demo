@@ -4,10 +4,11 @@ import { ProgramCard } from '../../components/ui/ProgramCard';
 import { Pagination } from '../../components/ui/Pagination';
 import { RequestProgram } from '../../components/ui/RequestProgram';
 import { usePaginatedSearch } from '../../hooks/usePaginatedSearch';
-import { providers } from '../../data/loyalty-programs';
+
 import { useParams } from 'react-router-dom';
 import { QRModal } from '../../components/ui/QRModal';
 import { RequestProgramModal } from '../../components/ui/RequestProgramModal';
+import { providers } from '../../data/loyalty-programs';
 
 const getRandomDescription = (brandName: string): string => {
   const descriptions = [

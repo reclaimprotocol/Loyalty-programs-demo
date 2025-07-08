@@ -65,17 +65,14 @@ export const QRModal = ({ isOpen, onClose, provider }: QRModalProps) => {
         onSuccess: (proofs) => {
           if (proofs) {
             if (typeof proofs === 'string') {
-              // When using a custom callback url, the proof is returned to the callback url and we get a message instead of a proof
-              console.log('SDK Message:', proofs);
-              setProofs([proofs]);
+              // Parse the string into an object
+              const parsedProof = JSON.parse(proofs);
+              setProofs([parsedProof]);
             } else if (typeof proofs !== 'string') {
-              // When using the default callback url, we get a proof object in the response
               if (Array.isArray(proofs)) {
-                // when using provider with multiple proofs, we get an array of proofs
                 console.log('Verification success', JSON.stringify(proofs.map((p) => p.claimData.context)));
                 setProofs(proofs);
               } else {
-                // when using provider with a single proof, we get a single proof object
                 console.log('Verification success', proofs?.claimData.context);
                 setProofs([proofs]);
               }
@@ -146,11 +143,18 @@ export const QRModal = ({ isOpen, onClose, provider }: QRModalProps) => {
 
   const renderContent = () => {
     if (proofs.length > 0) {
+      console.log('Proofs data:', proofs[0]);
+
+      // Parse the context string to get the extractedParameters
+      const contextData = JSON.parse(proofs[0].claimData.context);
+      console.log('Context data:', contextData);
+      console.log('Extracted parameters:', contextData.extractedParameters);
+
       return (
         <div className="flex flex-col items-center w-full">
           <div className="w-full bg-gray-50 rounded-xl p-4 overflow-auto max-h-[400px]">
             <JSONTree
-              data={proofs[0]}
+              data={contextData.extractedParameters || {}}
               theme={{
                 base00: '#ffffff',
                 base01: '#2a2a2a',

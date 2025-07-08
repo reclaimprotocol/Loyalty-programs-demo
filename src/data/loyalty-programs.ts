@@ -587,6 +587,15 @@ export const providers: Provider[] = [
     category: 'car-rentals',
     description: getProviderDescription('National Car Emerald Club', 47),
   },
+  // {
+  //   name: 'x',
+  //   providerId: '2523321f-f61d-4db3-b4e6-e665af5efdc1',
+  //   websiteUrl: 'https://nationalcar.com',
+  //   logoUrl:
+  //     'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/nationalcar.com-e1141219-81f0-481d-94bd-5f5e7fc60c6a.png',
+  //   category: 'car-rentals',
+  //   description: getProviderDescription('National Car Emerald Club', 47),
+  // },
 ];
 
 // Types
