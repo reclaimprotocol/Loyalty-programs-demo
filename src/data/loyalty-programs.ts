@@ -286,7 +286,8 @@ export const providers: Provider[] = [
     name: 'Ubisoft',
     providerId: 'db3c898d-462d-4084-908e-6883bb8b5f66',
     websiteUrl: 'https://ubisoft.com',
-    logoUrl: 'https://logos-world.net/wp-content/uploads/2021/02/Ubisoft-Logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/ubisoft.com-91413074-7193-407d-8288-97022ef4c30f.png',
     category: 'Gaming',
     description: getProviderDescription('Ubisoft', 14),
   },
@@ -294,7 +295,8 @@ export const providers: Provider[] = [
     name: 'EA',
     providerId: '0bebda39-79a8-4e7f-b011-1ec5c8bfc74c',
     websiteUrl: 'https://ea.com',
-    logoUrl: 'https://logos-world.net/wp-content/uploads/2020/11/EA-Logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/ea.com-4adad181-1dd4-4bf5-89e6-a7452ee95abf.png',
     category: 'Gaming',
     description: getProviderDescription('EA', 15),
   },
@@ -302,7 +304,8 @@ export const providers: Provider[] = [
     name: 'Binance',
     providerId: '37cdbf32-8061-46e7-827a-f3f16e0dfbf9',
     websiteUrl: 'https://binance.com',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/binance.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/binance.com-105099e1-13ea-4b9c-a62a-8441f97d2872.png',
     category: 'Exchange',
     description: getProviderDescription('Binance', 16),
   },
@@ -310,7 +313,8 @@ export const providers: Provider[] = [
     name: 'KuCoin',
     providerId: 'cb324ae8-4ca5-4550-815d-ab853cbca5e1',
     websiteUrl: 'https://kucoin.com/account',
-    logoUrl: 'https://assets.staticimg.com/cms/media/1lB3PkckFDyfxz6VudCEACBeRRBi6sQQ7DDjz0yWM.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/kucoin.com-7090ed70-0342-4c68-ad7b-dc2d6dfa0b5d.png',
     category: 'Exchange',
     description: getProviderDescription('KuCoin', 17),
   },
@@ -318,7 +322,8 @@ export const providers: Provider[] = [
     name: 'Bitget',
     providerId: 'da3bfac0-e90d-4353-9fee-387693a83109',
     websiteUrl: 'https://bitget.com',
-    logoUrl: 'https://assets.bitget.com/static/v2/images/brand/logo-dark.svg',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/bitget.site-b6f7172c-bef9-4a79-b2f1-750773bbc3bd.png',
     category: 'Exchange',
     description: getProviderDescription('Bitget', 18),
   },
@@ -326,7 +331,8 @@ export const providers: Provider[] = [
     name: 'Lufthansa Miles & More',
     providerId: '7d509268-cb4a-558c-c22f-2365d1e87b7b',
     websiteUrl: 'https://miles-and-more.com',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/lufthansa.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/lufthansa.com-b6e3d6da-b9b4-4fad-87c0-e53944309e34.png',
     category: 'Airlines',
     description: getProviderDescription('Lufthansa Miles & More', 19),
   },
@@ -334,7 +340,8 @@ export const providers: Provider[] = [
     name: 'Air Asia BIG Loyalty',
     providerId: 'e3f78e95-d1cd-4131-838a-f8844da85e32',
     websiteUrl: 'https://airasia.com/rewards',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/airasia.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/airasia.com-4112381e-8428-4de0-8e30-c921c7aa00ae.png',
     category: 'Airlines',
     description: getProviderDescription('Air Asia BIG Loyalty', 20),
   },
@@ -342,7 +349,8 @@ export const providers: Provider[] = [
     name: 'EasyJet Flight Club',
     providerId: 'ae372da6-b5c0-4ea1-9326-35afbdbdf0fa',
     websiteUrl: 'https://easyjet.com/flight-club',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/easyjet.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/easyjet.com-fcc0a3ab-7c3d-43b0-9920-def9981c4ba7.png',
     category: 'Airlines',
     description: getProviderDescription('EasyJet Flight Club', 21),
   },
@@ -350,7 +358,8 @@ export const providers: Provider[] = [
     name: 'Cathay Pacific Asia Miles',
     providerId: '8262f10f-4988-42ef-9ab8-33bc734732e9',
     websiteUrl: 'https://cathaypacific.com/asiamiles',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/cathaypacific.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/cathaypacific.com-9c8679d9-4209-469e-bb6f-2a06cbebb1c4.png',
     category: 'Airlines',
     description: getProviderDescription('Cathay Pacific Asia Miles', 22),
   },
@@ -358,7 +367,8 @@ export const providers: Provider[] = [
     name: 'JetBlue TrueBlue',
     providerId: 'd5724415-c5f4-42f7-bc3c-9808527387f4',
     websiteUrl: 'https://jetblue.com/trueblue',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/jetblue.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/jetblue.com-e23afb96-f111-4248-8d1b-0a7c932abb1e.png',
     category: 'Airlines',
     description: getProviderDescription('JetBlue TrueBlue', 23),
   },
@@ -366,7 +376,8 @@ export const providers: Provider[] = [
     name: 'Korean Air SKYPASS',
     providerId: '9db43368-548d-4f40-8656-29c3798f45bf',
     websiteUrl: 'https://koreanair.com/skypass',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/koreanair.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/koreanair.com-8944ca09-5fcf-4476-82dd-6c5dbad87418.png',
     category: 'Airlines',
     description: getProviderDescription('Korean Air SKYPASS', 24),
   },
@@ -374,7 +385,8 @@ export const providers: Provider[] = [
     name: 'SAS EuroBonus',
     providerId: '997944df-4a6e-4178-ad89-05dd98e14e30',
     websiteUrl: 'https://sas.se/eurobonus',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/sas.se-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/flysas.com-6ab05472-f973-4ac2-86d6-bd9ed4ebbd59.png',
     category: 'Airlines',
     description: getProviderDescription('SAS EuroBonus', 25),
   },
@@ -382,7 +394,8 @@ export const providers: Provider[] = [
     name: 'Finnair Plus',
     providerId: '7c3282f4-7c3b-4714-aaa7-75e58cada6bb',
     websiteUrl: 'https://finnair.com/plus',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/finnair.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/finnair.com-b5b28b64-5f41-4113-975f-9939841a4776.png',
     category: 'Airlines',
     description: getProviderDescription('Finnair Plus', 26),
   },
@@ -390,7 +403,8 @@ export const providers: Provider[] = [
     name: 'Thai Airways Royal Orchid Plus',
     providerId: '78440b6e-f55e-430d-947e-b52f105456b0',
     websiteUrl: 'https://thaiairways.com/rop',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/thaiairways.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/thaiairways.com-e0bfa007-3713-4d50-a6de-c8805a990157.png',
     category: 'Airlines',
     description: getProviderDescription('Thai Airways Royal Orchid Plus', 27),
   },
@@ -398,7 +412,8 @@ export const providers: Provider[] = [
     name: 'Ryanair Rewards',
     providerId: 'af8e5472-6f5a-43f8-b4f5-2a198228e98b',
     websiteUrl: 'https://ryanair.com/rewards',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/ryanair.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/ryanair.com-9bab3b25-aa0d-498b-90a5-a5b7ac4f7c71.png',
     category: 'Airlines',
     description: getProviderDescription('Ryanair Rewards', 28),
   },
@@ -406,7 +421,8 @@ export const providers: Provider[] = [
     name: 'China Southern Sky Pearl Club',
     providerId: '97be3b62-0f33-4ae0-a2f3-1f8b305a5da1',
     websiteUrl: 'https://global.csair.com/skypearl',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/csair.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/csair.com-0744a8c3-b451-41a0-a671-830e90161880.png',
     category: 'Airlines',
     description: getProviderDescription('China Southern Sky Pearl Club', 29),
   },
@@ -414,7 +430,8 @@ export const providers: Provider[] = [
     name: 'Spirit Free Spirit',
     providerId: '8763f085-ce66-4a20-8dc9-77288ad6d3ba',
     websiteUrl: 'https://spirit.com/free-spirit',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/spirit.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/spirit.com-f4a284a0-ad4c-40bf-a2c8-9fff4a62741e.png',
     category: 'Airlines',
     description: getProviderDescription('Spirit Free Spirit', 30),
   },
@@ -422,7 +439,8 @@ export const providers: Provider[] = [
     name: 'Frontier Miles',
     providerId: '80235191-50de-4bb2-8e9a-0a2d07b270cc',
     websiteUrl: 'https://flyfrontier.com/frontier-miles',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/flyfrontier.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/flyfrontier.com-86df9468-9f9b-42ca-9d3c-00ea8fe91d38.png',
     category: 'Airlines',
     description: getProviderDescription('Frontier Miles', 31),
   },
@@ -431,7 +449,7 @@ export const providers: Provider[] = [
     providerId: '5388f622-c8f3-4fbe-9dc8-b35bf784ab1f',
     websiteUrl: 'https://virginaustralia.com/velocity',
     logoUrl:
-      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/virginaustralia.com-logo.png',
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/velocityfrequentflyer.com-0ead976f-4c06-4589-9fab-b914188fe118.png',
     category: 'Airlines',
     description: getProviderDescription('Virgin Australia Velocity', 32),
   },
@@ -439,7 +457,8 @@ export const providers: Provider[] = [
     name: 'Air Canada Aeroplan',
     providerId: '8a571248-4cfe-4866-a1b4-f767bec656d4',
     websiteUrl: 'https://aircanada.com/aeroplan',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/aircanada.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/aircanada.com-c62c6ce4-c619-445f-a002-5a666ed0998c.png',
     category: 'Airlines',
     description: getProviderDescription('Air Canada Aeroplan', 33),
   },
@@ -456,7 +475,8 @@ export const providers: Provider[] = [
     name: 'Caesars Rewards',
     providerId: 'ca399561-01eb-4229-849c-eba898a60804',
     websiteUrl: 'https://caesars.com/rewards',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/caesars.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/caesars.com-d587412e-3736-4d3a-9d69-ebe07b7ccd1e.png',
     category: 'Hotels',
     description: getProviderDescription('Caesars Rewards', 35),
   },
@@ -464,7 +484,8 @@ export const providers: Provider[] = [
     name: 'Wynn Rewards',
     providerId: 'b0eae0df-4541-463b-8f8e-b22bf56151d9',
     websiteUrl: 'https://wynnresorts.com/rewards',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/wynnresorts.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/wynnresorts.com-3e01f07c-d35c-4061-bdf8-bc9bfb690637.png',
     category: 'Hotels',
     description: getProviderDescription('Wynn Rewards', 36),
   },
@@ -480,7 +501,8 @@ export const providers: Provider[] = [
     name: 'MGM Rewards',
     providerId: 'ca9ff54b-8ce6-4fca-98ae-7a19316281e5',
     websiteUrl: 'https://mgmresorts.com/rewards',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/mgmresorts.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/mgmresorts.com-8fa50cfb-76f6-435f-bcd9-ce810325438b.png',
     category: 'Hotels',
     description: getProviderDescription('MGM Rewards', 38),
   },
@@ -488,7 +510,8 @@ export const providers: Provider[] = [
     name: 'Choice Privileges',
     providerId: '25a90a1b-d5a2-458e-8b69-a7a1f54eae52',
     websiteUrl: 'https://choicehotels.com/choice-privileges',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/choicehotels.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/choicehotels.com-9d308be4-82e2-4cf6-80d7-321c5d995d25.png',
     category: 'Hotels',
     description: getProviderDescription('Choice Privileges', 39),
   },
@@ -496,7 +519,8 @@ export const providers: Provider[] = [
     name: 'NH Rewards',
     providerId: '1e8fed5b-9380-444c-85dc-d71fad00012c',
     websiteUrl: 'https://nh-hotels.com/rewards',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/nh-hotels.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/nh-hotels.com-75171ace-5bcc-4f4b-a9ba-ea8e29cb468a.png',
     category: 'Hotels',
     description: getProviderDescription('NH Rewards', 40),
   },
@@ -504,7 +528,8 @@ export const providers: Provider[] = [
     name: 'MeliáRewards',
     providerId: '4c38367d-68c8-413e-a522-77d78eef980f',
     websiteUrl: 'https://melia.com/rewards',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/melia.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/melia.com-4e83de9b-69c4-456f-a82b-7394046c1825.png',
     category: 'Hotels',
     description: getProviderDescription('MeliáRewards', 41),
   },
@@ -512,7 +537,8 @@ export const providers: Provider[] = [
     name: 'Radisson Rewards',
     providerId: 'e7431d9f-25b0-424e-8896-9519e9e90d57',
     websiteUrl: 'https://radissonhotels.com/rewards',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/radissonhotels.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/radissonhotels.com-24ccccb5-d469-4a0d-a511-ef4133e878fb.png',
     category: 'Hotels',
     description: getProviderDescription('Radisson Rewards', 42),
   },
@@ -520,7 +546,8 @@ export const providers: Provider[] = [
     name: 'Shangri-La Circle',
     providerId: '3cf8f74e-57b6-43e0-83de-dad0f44d4853',
     websiteUrl: 'https://shangri-la.com/circle',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/shangri-la.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/shangri-la.com-cbc83d32-9f90-4d13-818d-05d7cfcfea85.png',
     category: 'Hotels',
     description: getProviderDescription('Shangri-La Circle', 43),
   },
@@ -528,7 +555,8 @@ export const providers: Provider[] = [
     name: 'Oberoi ONE',
     providerId: '1da975bb-92a5-49d1-925c-6c561c4287c2',
     websiteUrl: 'https://oberoihotels.com/oberoi-one',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/oberoihotels.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/oberoihotels.com-bdc7138e-7c31-4be3-8491-d41a934faf86.png',
     category: 'Hotels',
     description: getProviderDescription('Oberoi ONE', 44),
   },
@@ -536,7 +564,8 @@ export const providers: Provider[] = [
     name: 'Taj Inner Circle',
     providerId: 'ec11a4b2-e415-4696-af09-7cb97c841ccf',
     websiteUrl: 'https://tajhotels.com/inner-circle',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/tajhotels.com-logo.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/tajhotels.com-35df1da5-2424-4bdb-9fe4-e2adff225d54.png',
     category: 'Hotels',
     description: getProviderDescription('Taj Inner Circle', 45),
   },
