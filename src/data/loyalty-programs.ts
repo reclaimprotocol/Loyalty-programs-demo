@@ -184,6 +184,14 @@ export const providers: Provider[] = [
     description: getProviderDescription('Delta SkyMiles', 2),
   },
   {
+    name: 'Alaska Airlines - Status Match',
+    providerId: '8ebcfe14-df6f-4d45-b7b1-070f8eb6f85a',
+    websiteUrl: 'https://www.alaskaair.com/',
+    logoUrl: 'https://www.alaskaair.com/v3/assets/blt2cefe12c88e9dd91/bltb0cd5d132b4088d1/logo-AS-tagline.svg',
+    category: 'Airlines',
+    description: getProviderDescription('Alaska Airlines', 2),
+  },
+  {
     name: 'IHG One Rewards',
     providerId: 'f752b6a3-fc17-4321-a3e9-f60fafdcd2cf',
     websiteUrl: 'https://ihg.com/onerewards',
