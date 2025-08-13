@@ -4,7 +4,7 @@ import { Sidebar } from '../../components/layout/Sidebar';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { RequestProgramModal } from '../../components/ui/RequestProgramModal';
-
+//layout
 export const Desktop = (): JSX.Element => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);

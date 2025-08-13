@@ -200,6 +200,24 @@ export const providers: Provider[] = [
     description: getProviderDescription('Srilankan Airways', 0),
   },
   {
+    name: 'MyIberia airline',
+    providerId: 'e0d8a501-16b8-4f9a-a599-479206384c37',
+    websiteUrl: 'https://www.iberia.com/us/en/login/',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/iberia.com-b55a1b13-8d48-4093-b2ad-99fd51b5457b.png',
+    category: [LoyaltyProgramCategory.OneWorldAlliance, LoyaltyProgramCategory.Airlines],
+    description: getProviderDescription('MyIberia Airlie', 3),
+  },
+  {
+    name: 'Qantas Airlines',
+    providerId: '69e961c7-7613-4608-b4ad-545b909c98b0',
+    websiteUrl: 'https://www.qantas.com/in/en/my-account',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/qantas.com-26a87515-3e3c-49ac-b43a-235d4633c172.png',
+    category: [LoyaltyProgramCategory.OneWorldAlliance, LoyaltyProgramCategory.Airlines],
+    description: getProviderDescription('Qantas Airlines', 3),
+  },
+  {
     name: 'Hilton Honors',
     providerId: 'b4490d0b-5680-4243-9cd5-7937c7ace58c',
     websiteUrl: 'https://hilton.com/honors',
