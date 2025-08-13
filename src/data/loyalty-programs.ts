@@ -52,7 +52,7 @@ export const loyaltyPrograms: LoyaltyProgram[] = [
   },
   {
     id: LoyaltyProgramCategory.OneWorldAlliance,
-    name: 'OneWorld Alliance',
+    name: 'OneWorld Alliance Airlines',
     icon: Globe2,
     category: LoyaltyProgramCategory.OneWorldAlliance,
     description: 'Connect your frequent flyer accounts and manage air miles',
@@ -208,6 +208,7 @@ export const providers: Provider[] = [
     category: [LoyaltyProgramCategory.OneWorldAlliance, LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('MyIberia Airlie', 3),
   },
+
   {
     name: 'Qantas Airlines',
     providerId: '69e961c7-7613-4608-b4ad-545b909c98b0',
@@ -456,7 +457,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://finnair.com/plus',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/finnair.com-b5b28b64-5f41-4113-975f-9939841a4776.png',
-    category: [LoyaltyProgramCategory.Airlines],
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.OneWorldAlliance],
     description: getProviderDescription('Finnair Plus', 26),
   },
   {
