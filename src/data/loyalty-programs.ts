@@ -35,6 +35,15 @@ export const loyaltyPrograms: LoyaltyProgram[] = [
     isEnabled: true,
   },
   {
+    id: 'one-world',
+    name: 'OneWorld Alliance',
+    icon: Plane,
+    category: 'OneWorkAlliance',
+    description: 'Connect your frequent flyer accounts and manage air miles',
+    path: '/programs/one-world',
+    isEnabled: true,
+  },
+  {
     id: 'hotels',
     name: 'Hotels & Resorts',
     icon: Building2,
@@ -164,6 +173,15 @@ export const providers: Provider[] = [
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/marriott.com-16d814b3-0d37-4b95-9868-3dcc88bd83e5.png',
     category: 'Hotels',
     description: getProviderDescription('Marriott Bonvoy', 0),
+  },
+  {
+    name: 'Srilankan Airways',
+    providerId: 'acf4c7b1-e599-43bf-b177-d2ab3a931bed',
+    websiteUrl: 'https://www.srilankan.com',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/srilankan.com-bbe345e8-b94e-4dfe-aa41-9dacaa4ad177.png',
+    category: 'One-World',
+    description: getProviderDescription('Srilankan Airways', 0),
   },
   {
     name: 'Hilton Honors',
