@@ -24,9 +24,13 @@ export const ProgramList = (): JSX.Element => {
   const [isLoading, setIsLoading] = useState(true);
 
   // Filter providers based on route category, show all if no category selected
-  const programApps = category
-    ? providers.filter((provider) => provider.category.toLowerCase() === category?.toLowerCase())
-    : providers;
+  const programApps = (
+    category
+      ? providers.filter((provider) => provider.category.some((cat) => cat.toLowerCase() === category.toLowerCase()))
+      : providers
+  )
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
 
   const { currentItems, currentPage, totalPages, searchTerm, setSearchTerm, setCurrentPage, filteredItems } =
     usePaginatedSearch({

@@ -4,6 +4,7 @@ import {
   CreditCard,
   Gamepad,
   Globe,
+  Globe2,
   LineChart,
   Plane,
   Ship,
@@ -23,121 +24,136 @@ export interface LoyaltyProgram {
   path: string;
   isEnabled: boolean;
 }
+export enum LoyaltyProgramCategory {
+  Airlines = 'airlines',
+  OneWorldAlliance = 'one-world',
+  Hotels = 'hotels',
+  TravelPrograms = 'travel-programs',
+  CarRentals = 'car-rentals',
+  CreditCards = 'credit-cards',
+  Trains = 'trains',
+  Cruises = 'cruises',
+  Shopping = 'shopping',
+  Dining = 'dining',
+  ClubMemberships = 'club-memberships',
+  Gaming = 'gaming',
+  Exchange = 'exchange',
+}
 
 export const loyaltyPrograms: LoyaltyProgram[] = [
   {
-    id: 'airlines',
+    id: LoyaltyProgramCategory.Airlines,
     name: 'Airlines',
     icon: Plane,
-    category: 'Airlines',
+    category: LoyaltyProgramCategory.Airlines,
     description: 'Connect your frequent flyer accounts and manage air miles',
     path: '/programs/airlines',
     isEnabled: true,
   },
   {
-    id: 'one-world',
+    id: LoyaltyProgramCategory.OneWorldAlliance,
     name: 'OneWorld Alliance',
-    icon: Plane,
-    category: 'OneWorkAlliance',
+    icon: Globe2,
+    category: LoyaltyProgramCategory.OneWorldAlliance,
     description: 'Connect your frequent flyer accounts and manage air miles',
     path: '/programs/one-world',
     isEnabled: true,
   },
   {
-    id: 'hotels',
+    id: LoyaltyProgramCategory.Hotels,
     name: 'Hotels & Resorts',
     icon: Building2,
-    category: 'Hotels',
+    category: LoyaltyProgramCategory.Hotels,
     description: 'Track hotel loyalty points and elite status benefits',
     path: '/programs/hotels',
     isEnabled: true,
   },
   {
-    id: 'travel-programs',
+    id: LoyaltyProgramCategory.TravelPrograms,
     name: 'Travel Programs',
     icon: Globe,
-    category: 'Travel',
+    category: LoyaltyProgramCategory.TravelPrograms,
     description: 'Manage rewards from online travel agencies and booking platforms',
     path: '/programs/travel-platforms',
     isEnabled: true,
   },
   {
-    id: 'car-rentals',
+    id: LoyaltyProgramCategory.CarRentals,
     name: 'Car Rentals',
     icon: Car,
-    category: 'CarRentals',
+    category: LoyaltyProgramCategory.CarRentals,
     description: 'Manage car rental rewards and elite status',
     path: '/programs/car-rentals',
     isEnabled: true,
   },
   {
-    id: 'credit-cards',
+    id: LoyaltyProgramCategory.CreditCards,
     name: 'Credit Cards',
     icon: CreditCard,
-    category: 'Financial',
+    category: LoyaltyProgramCategory.CreditCards,
     description: 'Track credit card rewards, points, and cashback programs',
     path: '/programs/credit-cards',
     isEnabled: false,
   },
   {
-    id: 'trains',
+    id: LoyaltyProgramCategory.Trains,
     name: 'Train Rewards',
     icon: Train,
-    category: 'Travel',
+    category: LoyaltyProgramCategory.Trains,
     description: 'Railway loyalty programs and season tickets',
     path: '/programs/trains',
     isEnabled: false,
   },
   {
-    id: 'cruises',
+    id: LoyaltyProgramCategory.Cruises,
     name: 'Cruise Lines',
     icon: Ship,
-    category: 'Travel',
+    category: LoyaltyProgramCategory.Cruises,
     description: 'Cruise line memberships and rewards',
     path: '/programs/cruises',
     isEnabled: false,
   },
   {
-    id: 'shopping',
+    id: LoyaltyProgramCategory.Shopping,
     name: 'Retail & Shopping',
     icon: ShoppingBag,
-    category: 'Shopping',
+    category: LoyaltyProgramCategory.Shopping,
     description: 'Retail store rewards and cashback programs',
     path: '/programs/shopping',
     isEnabled: false,
   },
   {
-    id: 'dining',
+    id: LoyaltyProgramCategory.Dining,
     name: 'Dining & Restaurants',
     icon: UtensilsCrossed,
-    category: 'Food',
+    category: LoyaltyProgramCategory.Dining,
     description: 'Restaurant loyalty programs and dining rewards',
     path: '/programs/dining',
     isEnabled: false,
   },
   {
-    id: 'club-memberships',
+    id: LoyaltyProgramCategory.ClubMemberships,
     name: 'Club Memberships',
     icon: Users,
-    category: 'Lifestyle',
+    category: LoyaltyProgramCategory.ClubMemberships,
     description: 'Private club memberships and benefits',
     path: '/programs/club-memberships',
     isEnabled: false,
   },
   {
-    id: 'gaming',
+    id: LoyaltyProgramCategory.Gaming,
     name: 'Gaming',
     icon: Gamepad,
-    category: 'Gaming',
+    category: LoyaltyProgramCategory.Gaming,
     description: 'Manage gaming platform rewards and memberships',
     path: '/programs/gaming',
     isEnabled: true,
   },
   {
-    id: 'exchange',
+    id: LoyaltyProgramCategory.Exchange,
     name: 'Crypto Exchange',
     icon: LineChart,
-    category: 'Exchange',
+    category: LoyaltyProgramCategory.Exchange,
     description: 'Track cryptocurrency exchange accounts and rewards',
     path: '/programs/exchange',
     isEnabled: true,
@@ -150,7 +166,7 @@ export interface Provider {
   providerId: string;
   websiteUrl: string;
   logoUrl: string;
-  category: string;
+  category: string[];
   description: string;
 }
 
@@ -171,7 +187,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://marriott.com/bonvoy',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/marriott.com-16d814b3-0d37-4b95-9868-3dcc88bd83e5.png',
-    category: 'Hotels',
+    category: ['Hotels'],
     description: getProviderDescription('Marriott Bonvoy', 0),
   },
   {
@@ -180,7 +196,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://www.srilankan.com',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/srilankan.com-bbe345e8-b94e-4dfe-aa41-9dacaa4ad177.png',
-    category: 'One-World',
+    category: [LoyaltyProgramCategory.OneWorldAlliance, LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Srilankan Airways', 0),
   },
   {
@@ -189,7 +205,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://hilton.com/honors',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/hilton.com-04caa689-1a63-4615-8952-5035d8b83133.png',
-    category: 'Hotels',
+    category: [LoyaltyProgramCategory.Hotels],
     description: getProviderDescription('Hilton Honors', 1),
   },
   {
@@ -198,7 +214,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://delta.com/skymiles',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/delta.com-9d14140c-1792-45c8-8bf6-d5b2c3dcc19d.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Delta SkyMiles', 2),
   },
   {
@@ -206,7 +222,7 @@ export const providers: Provider[] = [
     providerId: '8ebcfe14-df6f-4d45-b7b1-070f8eb6f85a',
     websiteUrl: 'https://www.alaskaair.com/',
     logoUrl: 'https://www.alaskaair.com/v3/assets/blt2cefe12c88e9dd91/bltb0cd5d132b4088d1/logo-AS-tagline.svg',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.OneWorldAlliance],
     description: getProviderDescription('Alaska Airlines', 2),
   },
   {
@@ -215,7 +231,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://ihg.com/onerewards',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/ihg.com-0ba408f1-5425-4dd8-8dad-70ac9666d08f.png',
-    category: 'Hotels',
+    category: [LoyaltyProgramCategory.Hotels],
     description: getProviderDescription('IHG One Rewards', 3),
   },
   {
@@ -224,7 +240,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://aa.com/aadvantage',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/aa.com-742c637a-c884-4f3a-89d2-6e9fa4419433.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.OneWorldAlliance],
     description: getProviderDescription('American AAdvantage', 4),
   },
   {
@@ -233,7 +249,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://wyndhamhotels.com/rewards',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/wyndhamhotels.com-d015a666-d3ea-42ff-aeef-d04e23a4d2be.png',
-    category: 'Hotels',
+    category: [LoyaltyProgramCategory.Hotels],
     description: getProviderDescription('Wyndham Rewards', 5),
   },
   {
@@ -242,7 +258,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://united.com/mileageplus',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/united.com-489a8d2d-085c-44af-b73b-4f8862663546.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('United MileagePlus', 6),
   },
   {
@@ -251,7 +267,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://all.accor.com',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/accor.com-f3457baf-2808-44f8-9115-724eaf6eb38a.png',
-    category: 'Hotels',
+    category: [LoyaltyProgramCategory.Hotels],
     description: getProviderDescription('Accor Live Limitless', 7),
   },
   {
@@ -260,7 +276,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://emirates.com/skywards',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/emirates.com-c6dd727f-cb27-4933-b018-84f2f0a7d8ce.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Emirates Skywards', 8),
   },
   {
@@ -269,7 +285,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://qatarairways.com/privilege-club',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/qatarairways.com-dc711e1a-03bc-4c20-b80a-ebb5b29b8849.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Qatar Airways Privilege Club', 9),
   },
   {
@@ -278,7 +294,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://singaporeair.com/krisflyer',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/singaporeair.com-ec45540f-0eb2-4b09-af07-9fca0f0901a3.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Singapore Airlines KrisFlyer', 10),
   },
   {
@@ -287,7 +303,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://britishairways.com/executive-club',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/britishairways.com-3a58cdb6-dcdb-4f0d-9ac9-108a4b1773d7.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.OneWorldAlliance],
     description: getProviderDescription('British Airways Executive Club', 11),
   },
   {
@@ -296,7 +312,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://turkishairlines.com/miles-smiles',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/turkishairlines.com-136a29eb-4cf6-4dff-8e0a-ea63a0470f00.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Turkish Airlines Miles&Smiles', 12),
   },
   {
@@ -305,7 +321,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://etihadguest.com',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/etihad.com-af282b1d-38ac-497d-9507-ed10aa26f4c8.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Etihad Guest', 13),
   },
   {
@@ -314,7 +330,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://ubisoft.com',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/ubisoft.com-91413074-7193-407d-8288-97022ef4c30f.png',
-    category: 'Gaming',
+    category: [LoyaltyProgramCategory.Gaming],
     description: getProviderDescription('Ubisoft', 14),
   },
   {
@@ -323,7 +339,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://ea.com',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/ea.com-4adad181-1dd4-4bf5-89e6-a7452ee95abf.png',
-    category: 'Gaming',
+    category: [LoyaltyProgramCategory.Gaming],
     description: getProviderDescription('EA', 15),
   },
   {
@@ -332,7 +348,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://binance.com',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/binance.com-105099e1-13ea-4b9c-a62a-8441f97d2872.png',
-    category: 'Exchange',
+    category: [LoyaltyProgramCategory.Exchange],
     description: getProviderDescription('Binance', 16),
   },
   {
@@ -341,7 +357,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://kucoin.com/account',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/kucoin.com-7090ed70-0342-4c68-ad7b-dc2d6dfa0b5d.png',
-    category: 'Exchange',
+    category: [LoyaltyProgramCategory.Exchange],
     description: getProviderDescription('KuCoin', 17),
   },
   {
@@ -350,7 +366,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://bitget.com',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/bitget.site-b6f7172c-bef9-4a79-b2f1-750773bbc3bd.png',
-    category: 'Exchange',
+    category: [LoyaltyProgramCategory.Exchange],
     description: getProviderDescription('Bitget', 18),
   },
   {
@@ -359,7 +375,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://miles-and-more.com',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/lufthansa.com-b6e3d6da-b9b4-4fad-87c0-e53944309e34.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Lufthansa Miles & More', 19),
   },
   {
@@ -368,7 +384,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://airasia.com/rewards',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/airasia.com-4112381e-8428-4de0-8e30-c921c7aa00ae.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Air Asia BIG Loyalty', 20),
   },
   {
@@ -377,7 +393,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://easyjet.com/flight-club',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/easyjet.com-fcc0a3ab-7c3d-43b0-9920-def9981c4ba7.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('EasyJet Flight Club', 21),
   },
   {
@@ -386,7 +402,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://cathaypacific.com/asiamiles',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/cathaypacific.com-9c8679d9-4209-469e-bb6f-2a06cbebb1c4.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.OneWorldAlliance],
     description: getProviderDescription('Cathay Pacific Asia Miles', 22),
   },
   {
@@ -395,7 +411,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://jetblue.com/trueblue',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/jetblue.com-e23afb96-f111-4248-8d1b-0a7c932abb1e.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('JetBlue TrueBlue', 23),
   },
   {
@@ -404,7 +420,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://koreanair.com/skypass',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/koreanair.com-8944ca09-5fcf-4476-82dd-6c5dbad87418.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Korean Air SKYPASS', 24),
   },
   {
@@ -413,7 +429,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://sas.se/eurobonus',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/flysas.com-6ab05472-f973-4ac2-86d6-bd9ed4ebbd59.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('SAS EuroBonus', 25),
   },
   {
@@ -422,7 +438,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://finnair.com/plus',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/finnair.com-b5b28b64-5f41-4113-975f-9939841a4776.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Finnair Plus', 26),
   },
   {
@@ -431,7 +447,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://thaiairways.com/rop',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/thaiairways.com-e0bfa007-3713-4d50-a6de-c8805a990157.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Thai Airways Royal Orchid Plus', 27),
   },
   {
@@ -440,7 +456,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://ryanair.com/rewards',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/ryanair.com-9bab3b25-aa0d-498b-90a5-a5b7ac4f7c71.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Ryanair Rewards', 28),
   },
   {
@@ -449,7 +465,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://global.csair.com/skypearl',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/csair.com-0744a8c3-b451-41a0-a671-830e90161880.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('China Southern Sky Pearl Club', 29),
   },
   {
@@ -458,7 +474,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://spirit.com/free-spirit',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/spirit.com-f4a284a0-ad4c-40bf-a2c8-9fff4a62741e.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Spirit Free Spirit', 30),
   },
   {
@@ -467,7 +483,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://flyfrontier.com/frontier-miles',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/flyfrontier.com-86df9468-9f9b-42ca-9d3c-00ea8fe91d38.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Frontier Miles', 31),
   },
   {
@@ -476,7 +492,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://virginaustralia.com/velocity',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/velocityfrequentflyer.com-0ead976f-4c06-4589-9fab-b914188fe118.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Virgin Australia Velocity', 32),
   },
   {
@@ -485,7 +501,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://aircanada.com/aeroplan',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/aircanada.com-c62c6ce4-c619-445f-a002-5a666ed0998c.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Air Canada Aeroplan', 33),
   },
   {
@@ -494,7 +510,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://smiles.club',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/smiles.com.br-616de9f0-7f1c-4e2c-8285-83337850f12d.png',
-    category: 'Airlines',
+    category: [LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Smiles Club', 34),
   },
   {
@@ -503,7 +519,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://caesars.com/rewards',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/caesars.com-d587412e-3736-4d3a-9d69-ebe07b7ccd1e.png',
-    category: 'Hotels',
+    category: [LoyaltyProgramCategory.Hotels],
     description: getProviderDescription('Caesars Rewards', 35),
   },
   {
@@ -512,7 +528,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://wynnresorts.com/rewards',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/wynnresorts.com-3e01f07c-d35c-4061-bdf8-bc9bfb690637.png',
-    category: 'Hotels',
+    category: [LoyaltyProgramCategory.Hotels],
     description: getProviderDescription('Wynn Rewards', 36),
   },
   {
@@ -520,7 +536,7 @@ export const providers: Provider[] = [
     providerId: '78d6683a-8481-406a-a8cd-52b23d8e6115',
     websiteUrl: 'https://lhw.com/leaders-club',
     logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/lhw.com-logo.png',
-    category: 'Hotels',
+    category: [LoyaltyProgramCategory.Hotels],
     description: getProviderDescription('Leading Hotels Leaders Club', 37),
   },
   {
@@ -529,7 +545,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://mgmresorts.com/rewards',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/mgmresorts.com-8fa50cfb-76f6-435f-bcd9-ce810325438b.png',
-    category: 'Hotels',
+    category: [LoyaltyProgramCategory.Hotels],
     description: getProviderDescription('MGM Rewards', 38),
   },
   {
@@ -538,7 +554,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://choicehotels.com/choice-privileges',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/choicehotels.com-9d308be4-82e2-4cf6-80d7-321c5d995d25.png',
-    category: 'Hotels',
+    category: [LoyaltyProgramCategory.Hotels],
     description: getProviderDescription('Choice Privileges', 39),
   },
   {
@@ -547,7 +563,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://nh-hotels.com/rewards',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/nh-hotels.com-75171ace-5bcc-4f4b-a9ba-ea8e29cb468a.png',
-    category: 'Hotels',
+    category: [LoyaltyProgramCategory.Hotels],
     description: getProviderDescription('NH Rewards', 40),
   },
   {
@@ -556,7 +572,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://melia.com/rewards',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/melia.com-4e83de9b-69c4-456f-a82b-7394046c1825.png',
-    category: 'Hotels',
+    category: [LoyaltyProgramCategory.Hotels],
     description: getProviderDescription('MeliáRewards', 41),
   },
   {
@@ -565,7 +581,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://radissonhotels.com/rewards',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/radissonhotels.com-24ccccb5-d469-4a0d-a511-ef4133e878fb.png',
-    category: 'Hotels',
+    category: [LoyaltyProgramCategory.Hotels],
     description: getProviderDescription('Radisson Rewards', 42),
   },
   {
@@ -574,7 +590,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://shangri-la.com/circle',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/shangri-la.com-cbc83d32-9f90-4d13-818d-05d7cfcfea85.png',
-    category: 'Hotels',
+    category: [LoyaltyProgramCategory.Hotels],
     description: getProviderDescription('Shangri-La Circle', 43),
   },
   {
@@ -583,7 +599,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://oberoihotels.com/oberoi-one',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/oberoihotels.com-bdc7138e-7c31-4be3-8491-d41a934faf86.png',
-    category: 'Hotels',
+    category: [LoyaltyProgramCategory.Hotels],
     description: getProviderDescription('Oberoi ONE', 44),
   },
   {
@@ -592,7 +608,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://tajhotels.com/inner-circle',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/tajhotels.com-35df1da5-2424-4bdb-9fe4-e2adff225d54.png',
-    category: 'Hotels',
+    category: [LoyaltyProgramCategory.Hotels],
     description: getProviderDescription('Taj Inner Circle', 45),
   },
   {
@@ -601,7 +617,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://booking.com',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/booking.com-114a6807-12cb-4c4b-9dee-ed0e24c4af9f.png',
-    category: 'travel-programs',
+    category: [LoyaltyProgramCategory.TravelPrograms],
     description: getProviderDescription('Booking.com', 46),
   },
   {
@@ -610,7 +626,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://expedia.com',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/nationalcar.com-e1141219-81f0-481d-94bd-5f5e7fc60c6a.png',
-    category: 'car-rentals',
+    category: [LoyaltyProgramCategory.CarRentals],
     description: getProviderDescription('National Car Emerald Club', 47),
   },
   // {
