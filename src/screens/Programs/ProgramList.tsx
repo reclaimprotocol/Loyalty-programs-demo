@@ -8,7 +8,7 @@ import { usePaginatedSearch } from '../../hooks/usePaginatedSearch';
 import { useParams } from 'react-router-dom';
 import { QRModal } from '../../components/ui/QRModal';
 import { RequestProgramModal } from '../../components/ui/RequestProgramModal';
-import { providers } from '../../data/loyalty-programs';
+import { providers, LoyaltyProgramCategory } from '../../data/loyalty-programs';
 
 const getRandomDescription = (brandName: string): string => {
   const descriptions = [
@@ -22,13 +22,19 @@ const getRandomDescription = (brandName: string): string => {
 export const ProgramList = (): JSX.Element => {
   const { category } = useParams();
   const [isLoading, setIsLoading] = useState(true);
+  const [airlinesTab, setAirlinesTab] = useState<'all' | 'one-world'>('all');
 
-  // Filter providers based on route category, show all if no category selected
-  const programApps = (
-    category
-      ? providers.filter((provider) => provider.category.some((cat) => cat.toLowerCase() === category.toLowerCase()))
-      : providers
-  )
+  // Filter providers based on route category, and apply airlines sub-filter if applicable
+  const routeFiltered = category
+    ? providers.filter((provider) => provider.category.some((cat) => cat.toLowerCase() === category.toLowerCase()))
+    : providers;
+
+  const subFiltered =
+    category?.toLowerCase() === LoyaltyProgramCategory.Airlines && airlinesTab === 'one-world'
+      ? routeFiltered.filter((provider) => provider.category.includes(LoyaltyProgramCategory.OneWorldAlliance))
+      : routeFiltered;
+
+  const programApps = subFiltered
     .slice()
     .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
 
@@ -45,6 +51,11 @@ export const ProgramList = (): JSX.Element => {
       setIsLoading(false);
     }, 500);
     return () => clearTimeout(timer);
+  }, [category]);
+
+  // Reset sub-tab on route change
+  useEffect(() => {
+    setAirlinesTab('all');
   }, [category]);
 
   // State for QR Modal
@@ -126,6 +137,36 @@ export const ProgramList = (): JSX.Element => {
 
       {/* Add spacing after the fixed search bar */}
       <div className="mt-4">
+        {category?.toLowerCase() === LoyaltyProgramCategory.Airlines && (
+          <div className="mb-4 flex items-center gap-2">
+            <button
+              onClick={() => {
+                setAirlinesTab('all');
+                setCurrentPage(1);
+              }}
+              className={`px-3 py-1.5 text-sm rounded-lg border transition-colors ${
+                airlinesTab === 'all'
+                  ? 'bg-indigo-600 text-white border-indigo-600'
+                  : 'bg-white text-gray-700 border-gray-200 hover:border-gray-300'
+              }`}
+            >
+              All
+            </button>
+            <button
+              onClick={() => {
+                setAirlinesTab('one-world');
+                setCurrentPage(1);
+              }}
+              className={`px-3 py-1.5 text-sm rounded-lg border transition-colors ${
+                airlinesTab === 'one-world'
+                  ? 'bg-indigo-600 text-white border-indigo-600'
+                  : 'bg-white text-gray-700 border-gray-200 hover:border-gray-300'
+              }`}
+            >
+              One World Alliance Airlines
+            </button>
+          </div>
+        )}
         {/* Cards Grid */}
         {currentItems.length > 0 ? (
           <>
