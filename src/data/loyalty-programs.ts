@@ -199,6 +199,15 @@ export const providers: Provider[] = [
     description: getProviderDescription('Srilankan Airways', 0),
   },
   {
+    name: 'Malaysia Airlines',
+    providerId: 'b72af2f6-0a86-4b2f-8d59-6559c4ef2ce9',
+    websiteUrl: 'https://www.malaysiaairlines.com',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/malaysiaairlines.com-ecc8f4b9-5c30-45cd-977d-e7c86adcab82.png',
+    category: [LoyaltyProgramCategory.OneWorldAlliance, LoyaltyProgramCategory.Airlines],
+    description: getProviderDescription('Malaysia Airlines', 1),
+  },
+  {
     name: 'MyIberia airline',
     providerId: 'e0d8a501-16b8-4f9a-a599-479206384c37',
     websiteUrl: 'https://www.iberia.com/us/en/login/',
