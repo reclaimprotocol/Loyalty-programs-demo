@@ -867,39 +867,8 @@ export const categoryTabs: CategoryTabConfig = {
       filter: (provider) => provider.category.includes(LoyaltyProgramCategory.Independent),
     },
   ],
-  [LoyaltyProgramCategory.Hotels]: [
-    { id: 'all', label: 'All' },
-    {
-      id: 'luxury',
-      label: 'Luxury Hotels',
-      filter: (provider) =>
-        ['Shangri-La Circle', 'Oberoi ONE', 'Taj Inner Circle', 'Leading Hotels Leaders Club'].includes(provider.name),
-    },
-    {
-      id: 'casino',
-      label: 'Casino Hotels',
-      filter: (provider) => ['Caesars Rewards', 'Wynn Rewards', 'MGM Rewards'].includes(provider.name),
-    },
-  ],
-  [LoyaltyProgramCategory.Cruises]: [
-    { id: 'all', label: 'All' },
-    {
-      id: 'premium',
-      label: 'Premium Lines',
-      filter: (provider) =>
-        ['Disney Castaway Club', 'Virgin Voyages', 'Oceania Club', 'Windstar Yacht Club'].includes(provider.name),
-    },
-    {
-      id: 'mainstream',
-      label: 'Mainstream Lines',
-      filter: (provider) =>
-        [
-          'Carnival Cruise Line',
-          'Royal Caribbean Crown & Anchor Society',
-          'Norwegian Cruise Line Latitudes Rewards',
-        ].includes(provider.name),
-    },
-  ],
+  [LoyaltyProgramCategory.Hotels]: [{ id: 'all', label: 'All' }],
+  [LoyaltyProgramCategory.Cruises]: [{ id: 'all', label: 'All' }],
   [LoyaltyProgramCategory.Exchange]: [
     { id: 'all', label: 'All' },
     {
