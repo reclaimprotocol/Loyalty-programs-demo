@@ -26,6 +26,9 @@ export interface LoyaltyProgram {
 export enum LoyaltyProgramCategory {
   Airlines = 'airlines',
   OneWorldAlliance = 'one-world',
+  StarAlliance = 'star-alliance',
+  SkyTeam = 'skyteam',
+  Independent = 'independent',
   Hotels = 'hotels',
   TravelPrograms = 'travel-programs',
   CarRentals = 'car-rentals',
@@ -68,6 +71,15 @@ export const loyaltyPrograms: LoyaltyProgram[] = [
     isEnabled: true,
   },
   {
+    id: LoyaltyProgramCategory.Cruises,
+    name: 'Cruise Lines',
+    icon: Ship,
+    category: LoyaltyProgramCategory.Cruises,
+    description: 'Cruise line memberships and rewards',
+    path: '/programs/cruises',
+    isEnabled: true,
+  },
+  {
     id: LoyaltyProgramCategory.TravelPrograms,
     name: 'Travel Programs',
     icon: Globe,
@@ -103,15 +115,7 @@ export const loyaltyPrograms: LoyaltyProgram[] = [
     path: '/programs/trains',
     isEnabled: false,
   },
-  {
-    id: LoyaltyProgramCategory.Cruises,
-    name: 'Cruise Lines',
-    icon: Ship,
-    category: LoyaltyProgramCategory.Cruises,
-    description: 'Cruise line memberships and rewards',
-    path: '/programs/cruises',
-    isEnabled: false,
-  },
+
   {
     id: LoyaltyProgramCategory.Shopping,
     name: 'Retail & Shopping',
@@ -167,6 +171,7 @@ export interface Provider {
   logoUrl: string;
   category: string[];
   description: string;
+  isEnabled?: boolean;
 }
 
 // Helper function for descriptions
@@ -197,6 +202,16 @@ export const providers: Provider[] = [
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/srilankan.com-bbe345e8-b94e-4dfe-aa41-9dacaa4ad177.png',
     category: [LoyaltyProgramCategory.OneWorldAlliance, LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Srilankan Airways', 0),
+  },
+
+  {
+    name: 'Royal Jordanian',
+    providerId: 'cdb0c13a-2944-44e3-a629-0de8a6e56d10',
+    websiteUrl: 'https://www.royaljordanian.com',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/frequentflyer.aero-4fff1b71-d02f-4eb0-bddc-c07e311e8e0f.png',
+    category: [LoyaltyProgramCategory.OneWorldAlliance, LoyaltyProgramCategory.Airlines],
+    description: getProviderDescription('Royal Jordanian', 1),
   },
   {
     name: 'Malaysia Airlines',
@@ -665,6 +680,135 @@ export const providers: Provider[] = [
   //   category: 'car-rentals',
   //   description: getProviderDescription('National Car Emerald Club', 47),
   // },
+  // Cruise Lines
+  {
+    name: 'Carnival Cruise Line',
+    providerId: 'a1b2c3d4-e5f6-7890-1234-567890abcdef',
+    websiteUrl: 'https://carnival.com',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/carnival.com-placeholder.png',
+    category: [LoyaltyProgramCategory.Cruises],
+    description: getProviderDescription('Carnival Cruise Line', 48),
+    isEnabled: false,
+  },
+  {
+    name: 'Azamara Circle',
+    providerId: 'b2c3d4e5-f6g7-8901-2345-678901bcdefg',
+    websiteUrl: 'https://azamara.com/rewards',
+    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/azamara.com-placeholder.png',
+    category: [LoyaltyProgramCategory.Cruises],
+    description: getProviderDescription('Azamara Circle', 49),
+    isEnabled: false,
+  },
+  {
+    name: "Celebrity Cruises Captain's Club",
+    providerId: 'c3d4e5f6-g7h8-9012-3456-789012cdefgh',
+    websiteUrl: 'https://celebrity.com/captains-club',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/celebrity.com-placeholder.png',
+    category: [LoyaltyProgramCategory.Cruises],
+    description: getProviderDescription("Celebrity Cruises Captain's Club", 50),
+    isEnabled: false,
+  },
+  {
+    name: 'Disney Castaway Club',
+    providerId: 'd4e5f6g7-h8i9-0123-4567-890123defghi',
+    websiteUrl: 'https://disneycruise.disney.com/castaway-club',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/disneycruise.com-placeholder.png',
+    category: [LoyaltyProgramCategory.Cruises],
+    description: getProviderDescription('Disney Castaway Club', 51),
+    isEnabled: false,
+  },
+  {
+    name: 'Holland America Mariner Society',
+    providerId: 'e5f6g7h8-i9j0-1234-5678-901234efghij',
+    websiteUrl: 'https://hollandamerica.com/mariner-society',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/hollandamerica.com-placeholder.png',
+    category: [LoyaltyProgramCategory.Cruises],
+    description: getProviderDescription('Holland America Mariner Society', 52),
+    isEnabled: false,
+  },
+  {
+    name: 'Norwegian Cruise Line Latitudes Rewards',
+    providerId: 'f6g7h8i9-j0k1-2345-6789-012345fghijk',
+    websiteUrl: 'https://ncl.com/latitudes',
+    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/ncl.com-placeholder.png',
+    category: [LoyaltyProgramCategory.Cruises],
+    description: getProviderDescription('Norwegian Cruise Line Latitudes Rewards', 53),
+    isEnabled: false,
+  },
+  {
+    name: 'Oceania Club',
+    providerId: 'g7h8i9j0-k1l2-3456-7890-123456ghijkl',
+    websiteUrl: 'https://oceaniacruises.com/oceania-club',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/oceaniacruises.com-placeholder.png',
+    category: [LoyaltyProgramCategory.Cruises],
+    description: getProviderDescription('Oceania Club', 54),
+    isEnabled: false,
+  },
+  {
+    name: 'P&O Peninsular Club',
+    providerId: 'h8i9j0k1-l2m3-4567-8901-234567hijklm',
+    websiteUrl: 'https://pocruises.com/peninsular-club',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/pocruises.com-placeholder.png',
+    category: [LoyaltyProgramCategory.Cruises],
+    description: getProviderDescription('P&O Peninsular Club', 55),
+    isEnabled: false,
+  },
+  {
+    name: "Princess Captain's Circle",
+    providerId: 'i9j0k1l2-m3n4-5678-9012-345678ijklmn',
+    websiteUrl: 'https://princess.com/captains-circle',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/princess.com-placeholder.png',
+    category: [LoyaltyProgramCategory.Cruises],
+    description: getProviderDescription("Princess Captain's Circle", 56),
+    isEnabled: false,
+  },
+  {
+    name: 'Royal Caribbean Crown & Anchor Society',
+    providerId: 'j0k1l2m3-n4o5-6789-0123-456789jklmno',
+    websiteUrl: 'https://royalcaribbean.com/crown-anchor',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/royalcaribbean.com-placeholder.png',
+    category: [LoyaltyProgramCategory.Cruises],
+    description: getProviderDescription('Royal Caribbean Crown & Anchor Society', 57),
+    isEnabled: false,
+  },
+  {
+    name: 'Windstar Yacht Club',
+    providerId: 'k1l2m3n4-o5p6-7890-1234-567890klmnop',
+    websiteUrl: 'https://windstarcruises.com/yacht-club',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/windstarcruises.com-placeholder.png',
+    category: [LoyaltyProgramCategory.Cruises],
+    description: getProviderDescription('Windstar Yacht Club', 58),
+    isEnabled: false,
+  },
+  {
+    name: 'MSC Cruises',
+    providerId: 'l2m3n4o5-p6q7-8901-2345-678901lmnopq',
+    websiteUrl: 'https://msccruises.com/rewards',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/msccruises.com-placeholder.png',
+    category: [LoyaltyProgramCategory.Cruises],
+    description: getProviderDescription('MSC Cruises', 59),
+    isEnabled: false,
+  },
+  {
+    name: 'Virgin Voyages',
+    providerId: 'm3n4o5p6-q7r8-9012-3456-789012mnopqr',
+    websiteUrl: 'https://virginvoyages.com/sailor-loot',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/virginvoyages.com-placeholder.png',
+    category: [LoyaltyProgramCategory.Cruises],
+    description: getProviderDescription('Virgin Voyages', 60),
+    isEnabled: false,
+  },
 ];
 
 // Types
@@ -687,3 +831,87 @@ export interface Providers {
 }
 
 export type CategoryType = keyof typeof providers;
+
+// Tab Configuration System
+export interface CategoryTab {
+  id: string;
+  label: string;
+  filter?: (provider: Provider) => boolean;
+}
+
+export interface CategoryTabConfig {
+  [category: string]: CategoryTab[];
+}
+
+export const categoryTabs: CategoryTabConfig = {
+  [LoyaltyProgramCategory.Airlines]: [
+    { id: 'all', label: 'All' },
+    {
+      id: 'one-world',
+      label: 'OneWorld Alliance',
+      filter: (provider) => provider.category.includes(LoyaltyProgramCategory.OneWorldAlliance),
+    },
+    {
+      id: 'star-alliance',
+      label: 'Star Alliance',
+      filter: (provider) => provider.category.includes(LoyaltyProgramCategory.StarAlliance),
+    },
+    {
+      id: 'skyteam',
+      label: 'SkyTeam',
+      filter: (provider) => provider.category.includes(LoyaltyProgramCategory.SkyTeam),
+    },
+    {
+      id: 'independent',
+      label: 'Independent',
+      filter: (provider) => provider.category.includes(LoyaltyProgramCategory.Independent),
+    },
+  ],
+  [LoyaltyProgramCategory.Hotels]: [
+    { id: 'all', label: 'All' },
+    {
+      id: 'luxury',
+      label: 'Luxury Hotels',
+      filter: (provider) =>
+        ['Shangri-La Circle', 'Oberoi ONE', 'Taj Inner Circle', 'Leading Hotels Leaders Club'].includes(provider.name),
+    },
+    {
+      id: 'casino',
+      label: 'Casino Hotels',
+      filter: (provider) => ['Caesars Rewards', 'Wynn Rewards', 'MGM Rewards'].includes(provider.name),
+    },
+  ],
+  [LoyaltyProgramCategory.Cruises]: [
+    { id: 'all', label: 'All' },
+    {
+      id: 'premium',
+      label: 'Premium Lines',
+      filter: (provider) =>
+        ['Disney Castaway Club', 'Virgin Voyages', 'Oceania Club', 'Windstar Yacht Club'].includes(provider.name),
+    },
+    {
+      id: 'mainstream',
+      label: 'Mainstream Lines',
+      filter: (provider) =>
+        [
+          'Carnival Cruise Line',
+          'Royal Caribbean Crown & Anchor Society',
+          'Norwegian Cruise Line Latitudes Rewards',
+        ].includes(provider.name),
+    },
+  ],
+  [LoyaltyProgramCategory.Exchange]: [
+    { id: 'all', label: 'All' },
+    {
+      id: 'major',
+      label: 'Major Exchanges',
+      filter: (provider) => ['Binance', 'KuCoin'].includes(provider.name),
+    },
+  ],
+  // Add more categories as needed
+};
+
+// Helper function to get tabs for a category
+export const getCategoryTabs = (category: string): CategoryTab[] => {
+  return categoryTabs[category.toLowerCase()] || [{ id: 'all', label: 'All' }];
+};

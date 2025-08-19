@@ -8,7 +8,7 @@ import { usePaginatedSearch } from '../../hooks/usePaginatedSearch';
 import { useParams } from 'react-router-dom';
 import { QRModal } from '../../components/ui/QRModal';
 import { RequestProgramModal } from '../../components/ui/RequestProgramModal';
-import { providers, LoyaltyProgramCategory } from '../../data/loyalty-programs';
+import { providers, LoyaltyProgramCategory, getCategoryTabs, CategoryTab } from '../../data/loyalty-programs';
 
 const getRandomDescription = (brandName: string): string => {
   const descriptions = [
@@ -22,19 +22,22 @@ const getRandomDescription = (brandName: string): string => {
 export const ProgramList = (): JSX.Element => {
   const { category } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [airlinesTab, setAirlinesTab] = useState<'all' | 'one-world'>('all');
+  const [activeTab, setActiveTab] = useState<string>('all');
 
-  // Filter providers based on route category, and apply airlines sub-filter if applicable
+  // Get tabs for the current category
+  const categoryTabsConfig = category ? getCategoryTabs(category) : [];
+  const hasMultipleTabs = categoryTabsConfig.length > 1;
+
+  // Filter providers based on route category
   const routeFiltered = category
     ? providers.filter((provider) => provider.category.some((cat) => cat.toLowerCase() === category.toLowerCase()))
     : providers;
 
-  const subFiltered =
-    category?.toLowerCase() === LoyaltyProgramCategory.Airlines && airlinesTab === 'one-world'
-      ? routeFiltered.filter((provider) => provider.category.includes(LoyaltyProgramCategory.OneWorldAlliance))
-      : routeFiltered;
+  // Apply tab filter if applicable
+  const currentTabConfig = categoryTabsConfig.find((tab) => tab.id === activeTab);
+  const tabFiltered = currentTabConfig?.filter ? routeFiltered.filter(currentTabConfig.filter) : routeFiltered;
 
-  const programApps = subFiltered
+  const programApps = tabFiltered
     .slice()
     .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
 
@@ -53,9 +56,9 @@ export const ProgramList = (): JSX.Element => {
     return () => clearTimeout(timer);
   }, [category]);
 
-  // Reset sub-tab on route change
+  // Reset tab on route change
   useEffect(() => {
-    setAirlinesTab('all');
+    setActiveTab('all');
   }, [category]);
 
   // State for QR Modal
@@ -91,6 +94,11 @@ export const ProgramList = (): JSX.Element => {
     setIsRequestModalOpen(false);
   };
 
+  const handleTabChange = (tabId: string) => {
+    setActiveTab(tabId);
+    setCurrentPage(1);
+  };
+
   if (isLoading) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -114,7 +122,7 @@ export const ProgramList = (): JSX.Element => {
   return (
     <div className="relative min-h-screen">
       {/* Search Section - Made sticky */}
-      <div className="sticky top-0 z-20  backdrop-blur-sm pb-4 pt-4">
+      <div className="sticky top-0 z-20 backdrop-blur-sm pb-4 pt-4">
         <div className="relative">
           <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
           <input
@@ -137,36 +145,48 @@ export const ProgramList = (): JSX.Element => {
 
       {/* Add spacing after the fixed search bar */}
       <div className="mt-4">
-        {category?.toLowerCase() === LoyaltyProgramCategory.Airlines && (
-          <div className="mb-4 flex items-center gap-2">
-            <button
-              onClick={() => {
-                setAirlinesTab('all');
-                setCurrentPage(1);
-              }}
-              className={`px-3 py-1.5 text-sm rounded-lg border transition-colors ${
-                airlinesTab === 'all'
-                  ? 'bg-indigo-600 text-white border-indigo-600'
-                  : 'bg-white text-gray-700 border-gray-200 hover:border-gray-300'
-              }`}
-            >
-              All
-            </button>
-            <button
-              onClick={() => {
-                setAirlinesTab('one-world');
-                setCurrentPage(1);
-              }}
-              className={`px-3 py-1.5 text-sm rounded-lg border transition-colors ${
-                airlinesTab === 'one-world'
-                  ? 'bg-indigo-600 text-white border-indigo-600'
-                  : 'bg-white text-gray-700 border-gray-200 hover:border-gray-300'
-              }`}
-            >
-              One World Alliance Airlines
-            </button>
+        {/* Enhanced Dynamic Tab System */}
+        {hasMultipleTabs && (
+          <div className="mb-6">
+            <div className="flex items-center gap-1 p-1 bg-gray-100 rounded-xl flex-wrap">
+              {categoryTabsConfig.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => handleTabChange(tab.id)}
+                  className={`px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
+                    activeTab === tab.id
+                      ? 'bg-indigo-600 text-white shadow-md'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-white/60'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Active Filter Indicator */}
+            {activeTab !== 'all' && (
+              <div className="mt-3 flex items-center gap-2">
+                <div className="flex items-center gap-2 px-3 py-1.5 bg-indigo-50 border border-indigo-200 rounded-lg">
+                  <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
+                  <span className="text-sm font-medium text-indigo-700">
+                    Filter: {categoryTabsConfig.find((tab) => tab.id === activeTab)?.label}
+                  </span>
+                  <button
+                    onClick={() => handleTabChange('all')}
+                    className="ml-1 text-indigo-400 hover:text-indigo-600 transition-colors"
+                    title="Clear filter"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         )}
+
         {/* Cards Grid */}
         {currentItems.length > 0 ? (
           <>
@@ -180,6 +200,7 @@ export const ProgramList = (): JSX.Element => {
                   logo={app.logoUrl}
                   providerId={app.providerId}
                   onTryNow={() => handleTryNow(app)}
+                  isEnabled={app.isEnabled}
                 />
               ))}
             </div>
