@@ -37,9 +37,14 @@ export const ProgramList = (): JSX.Element => {
   const currentTabConfig = categoryTabsConfig.find((tab) => tab.id === activeTab);
   const tabFiltered = currentTabConfig?.filter ? routeFiltered.filter(currentTabConfig.filter) : routeFiltered;
 
-  const programApps = tabFiltered
-    .slice()
-    .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
+  const programApps = tabFiltered.slice().sort((a, b) => {
+    // First, sort by isEnabled status (enabled providers first)
+    if (a.isEnabled !== b.isEnabled) {
+      return a.isEnabled ? -1 : 1;
+    }
+    // Then sort alphabetically by name
+    return a.name.localeCompare(b.name, undefined, { sensitivity: 'base' });
+  });
 
   const { currentItems, currentPage, totalPages, searchTerm, setSearchTerm, setCurrentPage, filteredItems } =
     usePaginatedSearch({

@@ -336,7 +336,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://singaporeair.com/krisflyer',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/singaporeair.com-ec45540f-0eb2-4b09-af07-9fca0f0901a3.png',
-    category: [LoyaltyProgramCategory.Airlines],
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
     description: getProviderDescription('Singapore Airlines KrisFlyer', 10),
   },
   {
@@ -354,7 +354,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://turkishairlines.com/miles-smiles',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/turkishairlines.com-136a29eb-4cf6-4dff-8e0a-ea63a0470f00.png',
-    category: [LoyaltyProgramCategory.Airlines],
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
     description: getProviderDescription('Turkish Airlines Miles&Smiles', 12),
   },
   {
@@ -417,7 +417,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://miles-and-more.com',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/lufthansa.com-b6e3d6da-b9b4-4fad-87c0-e53944309e34.png',
-    category: [LoyaltyProgramCategory.Airlines],
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
     description: getProviderDescription('Lufthansa Miles & More', 19),
   },
   {
@@ -489,7 +489,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://thaiairways.com/rop',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/thaiairways.com-e0bfa007-3713-4d50-a6de-c8805a990157.png',
-    category: [LoyaltyProgramCategory.Airlines],
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
     description: getProviderDescription('Thai Airways Royal Orchid Plus', 27),
   },
   {
@@ -543,7 +543,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://aircanada.com/aeroplan',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/aircanada.com-c62c6ce4-c619-445f-a002-5a666ed0998c.png',
-    category: [LoyaltyProgramCategory.Airlines],
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
     description: getProviderDescription('Air Canada Aeroplan', 33),
   },
   {
@@ -683,13 +683,13 @@ export const providers: Provider[] = [
   // Cruise Lines
   {
     name: 'Carnival Cruise Line',
-    providerId: 'a1b2c3d4-e5f6-7890-1234-567890abcdef',
-    websiteUrl: 'https://carnival.com',
+    providerId: 'f90f8d00-1f2c-424c-9942-c15bd4ce8d07',
+    websiteUrl: 'https://www.carnival.com/',
     logoUrl:
-      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/carnival.com-placeholder.png',
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/carnival.com-5211cfd7-5589-41a3-be5a-1eac2133f959.png',
     category: [LoyaltyProgramCategory.Cruises],
     description: getProviderDescription('Carnival Cruise Line', 48),
-    isEnabled: false,
+    isEnabled: true,
   },
   {
     name: 'Azamara Circle',
@@ -722,13 +722,13 @@ export const providers: Provider[] = [
   },
   {
     name: 'Holland America Mariner Society',
-    providerId: 'e5f6g7h8-i9j0-1234-5678-901234efghij',
-    websiteUrl: 'https://hollandamerica.com/mariner-society',
+    providerId: 'ee678d96-1db3-4b98-8f4b-4b858fa10fe5',
+    websiteUrl: 'https://www.hollandamerica.com/en',
     logoUrl:
-      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/hollandamerica.com-placeholder.png',
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/hollandamerica.com-7245901a-6580-4204-8657-d32a95590067.png',
     category: [LoyaltyProgramCategory.Cruises],
     description: getProviderDescription('Holland America Mariner Society', 52),
-    isEnabled: false,
+    isEnabled: true,
   },
   {
     name: 'Norwegian Cruise Line Latitudes Rewards',
@@ -740,14 +740,14 @@ export const providers: Provider[] = [
     isEnabled: false,
   },
   {
-    name: 'Oceania Club',
-    providerId: 'g7h8i9j0-k1l2-3456-7890-123456ghijkl',
-    websiteUrl: 'https://oceaniacruises.com/oceania-club',
+    name: 'Oceania Cruises Club',
+    providerId: '6e10a210-a5a5-47aa-8595-14a952198fc3',
+    websiteUrl: 'https://www.oceaniacruises.com',
     logoUrl:
-      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/oceaniacruises.com-placeholder.png',
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/oceaniacruises.com-977f84a9-a098-45a1-bfa1-7d0177c18ee4.png',
     category: [LoyaltyProgramCategory.Cruises],
-    description: getProviderDescription('Oceania Club', 54),
-    isEnabled: false,
+    description: getProviderDescription('Oceania Cruises Club', 54),
+    isEnabled: true,
   },
   {
     name: 'P&O Peninsular Club',
