@@ -731,13 +731,14 @@ export const providers: Provider[] = [
     isEnabled: true,
   },
   {
-    name: 'Norwegian Cruise Line Latitudes Rewards',
-    providerId: 'f6g7h8i9-j0k1-2345-6789-012345fghijk',
+    name: 'Norwegian Cruise Line ',
+    providerId: 'ae73c054-f723-4961-91f0-9d4fab0dfd42',
     websiteUrl: 'https://ncl.com/latitudes',
-    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/ncl.com-placeholder.png',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/ncl.com-53dc0add-651c-4fa4-a621-2196a4276bc6.png',
     category: [LoyaltyProgramCategory.Cruises],
     description: getProviderDescription('Norwegian Cruise Line Latitudes Rewards', 53),
-    isEnabled: false,
+    isEnabled: true,
   },
   {
     name: 'Oceania Cruises Club',
@@ -750,24 +751,24 @@ export const providers: Provider[] = [
     isEnabled: true,
   },
   {
-    name: 'P&O Peninsular Club',
-    providerId: 'h8i9j0k1-l2m3-4567-8901-234567hijklm',
+    name: 'P&O Cruises',
+    providerId: 'c350f222-b710-48fa-b625-f36e94d09b336',
     websiteUrl: 'https://pocruises.com/peninsular-club',
     logoUrl:
-      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/pocruises.com-placeholder.png',
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/pocruises.com-7dde9620-9145-47a0-a7dd-769afb76098c.png',
     category: [LoyaltyProgramCategory.Cruises],
-    description: getProviderDescription('P&O Peninsular Club', 55),
-    isEnabled: false,
+    description: getProviderDescription('P&O Cruises', 55),
+    isEnabled: true,
   },
   {
-    name: "Princess Captain's Circle",
-    providerId: 'i9j0k1l2-m3n4-5678-9012-345678ijklmn',
+    name: 'Princess Cruises',
+    providerId: '00f3fc16-779e-4c5e-880b-aa7deefdd216',
     websiteUrl: 'https://princess.com/captains-circle',
     logoUrl:
-      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/princess.com-placeholder.png',
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/princess.com-1603aec6-4c4c-4637-8691-c624eacd95e7.png',
     category: [LoyaltyProgramCategory.Cruises],
     description: getProviderDescription("Princess Captain's Circle", 56),
-    isEnabled: false,
+    isEnabled: true,
   },
   {
     name: 'Royal Caribbean Crown & Anchor Society',
@@ -800,14 +801,14 @@ export const providers: Provider[] = [
     isEnabled: false,
   },
   {
-    name: 'Virgin Voyages',
-    providerId: 'm3n4o5p6-q7r8-9012-3456-789012mnopqr',
+    name: 'Virgin Voyages Captains',
+    providerId: 'a8e3aaa5-8df4-45d2-9356-0ea09589d07f',
     websiteUrl: 'https://virginvoyages.com/sailor-loot',
     logoUrl:
-      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/virginvoyages.com-placeholder.png',
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/virginvoyages.com-d6743130-a2ca-4407-b3b9-bcf1848ddb7f.png',
     category: [LoyaltyProgramCategory.Cruises],
     description: getProviderDescription('Virgin Voyages', 60),
-    isEnabled: false,
+    isEnabled: true,
   },
 ];
 
