@@ -752,7 +752,7 @@ export const providers: Provider[] = [
   },
   {
     name: 'P&O Cruises',
-    providerId: 'c350f222-b710-48fa-b625-f36e94d09b336',
+    providerId: 'c350f222-b710-48fa-b625-f36e94d09b33',
     websiteUrl: 'https://pocruises.com/peninsular-club',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/pocruises.com-7dde9620-9145-47a0-a7dd-769afb76098c.png',

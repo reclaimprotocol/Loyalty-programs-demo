@@ -8,7 +8,7 @@ import { usePaginatedSearch } from '../../hooks/usePaginatedSearch';
 import { useParams } from 'react-router-dom';
 import { QRModal } from '../../components/ui/QRModal';
 import { RequestProgramModal } from '../../components/ui/RequestProgramModal';
-import { providers, LoyaltyProgramCategory, getCategoryTabs, CategoryTab } from '../../data/loyalty-programs';
+import { providers, getCategoryTabs } from '../../data/loyalty-programs';
 
 const getRandomDescription = (brandName: string): string => {
   const descriptions = [
