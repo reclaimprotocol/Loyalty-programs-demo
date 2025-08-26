@@ -405,6 +405,141 @@ export const providers: Provider[] = [
     isEnabled: false,
   },
   {
+    name: 'Air India',
+    providerId: 'xxxx12', // confirm and add
+    websiteUrl: 'https://www.airindia.in/en/my-air-india/my-air-india-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('Air India', 10),
+    isEnabled: false,
+  },
+  {
+    name: 'Air Egypt',
+    providerId: 'xxxx13', // confirm and add
+    websiteUrl: 'https://www.aireuropa.com/en-in/my-air-europa/my-air-europa-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('Air Egypt', 10),
+    isEnabled: false,
+  },
+  {
+    name: 'Ethiopian Airlines',
+    providerId: 'xxxx14', // confirm and add
+    websiteUrl: 'https://www.ethiopianairlines.com/en/my-ethiopian/my-ethiopian-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('Ethiopian Airlines', 10),
+    isEnabled: false,
+  },
+  {
+    name: 'South African Airways',
+    providerId: 'xxxx15', // confirm and add
+    websiteUrl: 'https://www.flysaa.com/en-in/my-flysaa/my-flysaa-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('South African Airways', 10),
+    isEnabled: false,
+  },
+  {
+    name: 'Shenzhen Airlines',
+    providerId: 'xxxx16', // confirm and add
+    websiteUrl: 'https://www.shenzhenair.com/en-in/my-shenzhen-air/my-shenzhen-air-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('Shenzhen Airlines', 10),
+    isEnabled: false,
+  },
+  {
+    name: 'Air China',
+    providerId: 'xxxx17', // confirm and add
+    websiteUrl: 'https://www.airchina.com/en-in/my-air-china/my-air-china-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('Air China', 10),
+    isEnabled: false,
+  },
+  {
+    name: 'Brussels Airlines',
+    providerId: 'xxxx20', // confirm and add
+    websiteUrl: 'https://www.brusselsairlines.com/en-in/my-brussels-airlines/my-brussels-airlines-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('Brussels Airlines', 10),
+    isEnabled: false,
+  },
+  {
+    name: 'Copa Airlines',
+    providerId: 'xxxx21', // confirm and add
+    websiteUrl: 'https://www.copaair.com/en-in/my-copa-airlines/my-copa-airlines-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('Copa Airlines', 10),
+    isEnabled: false,
+  },
+  {
+    name: 'Croatia Airlines',
+    providerId: 'xxxx22', // confirm and add
+    websiteUrl: 'https://www.croatiaairlines.com/en-in/my-croatia-airlines/my-croatia-airlines-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('Croatia Airlines', 10),
+    isEnabled: false,
+  },
+  {
+    name: 'LOT Polish Airlines',
+    providerId: 'xxxx23', // confirm and add
+    websiteUrl: 'https://www.lot.com/en-in/my-lot/my-lot-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('LOT Polish Airlines', 10),
+    isEnabled: false,
+  },
+  {
+    name: 'Tap Air Portugal',
+    providerId: 'xxxx24', // confirm and add
+    websiteUrl: 'https://www.flytap.com/en-in/my-tap/my-tap-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('Tap Air Portugal', 20),
+    isEnabled: false,
+  },
+  {
+    name: 'Avianca Airlines',
+    providerId: 'xxxx19', // confirm and add
+    websiteUrl: 'https://www.aviana.com/en-in/my-aviana/my-aviana-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('Avianca Airlines', 10),
+    isEnabled: false,
+  },
+  {
+    name: 'Asiana Airlines',
+    providerId: 'xxxx18', // confirm and add
+    websiteUrl: 'https://www.flyasiana.com/en-in/my-flyasiana/my-flyasiana-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('Asiana Airlines', 10),
+    isEnabled: false,
+  },
+  {
+    name: 'Aegean Airlines',
+    providerId: 'xxxx11', // confirm and add
+    websiteUrl: 'https://www.aegeanair.com/en-in/my-aegean/my-aegean-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('EVA Air', 10),
+    isEnabled: false,
+  },
+  {
+    name: 'Austrian Airlines Miles & More',
+    providerId: 'xxxx10', // confirm and add
+    websiteUrl: 'https://www.austrian.com/en/my-austrian/my-austrian-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('Austrian Airlines Miles & More', 10),
+    isEnabled: false,
+  },
+  {
     name: 'British Airways Executive Club',
     providerId: '8ac39bfd-c92b-4592-8d0e-20f4e18458f5',
     websiteUrl: 'https://britishairways.com/executive-club',
