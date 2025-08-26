@@ -137,7 +137,11 @@ export const ProgramList = (): JSX.Element => {
             type="text"
             value={searchTerm}
             onChange={handleSearch}
-            placeholder={category ? `Search ${category.toLowerCase()} programs...` : 'Search all programs...'}
+            placeholder={
+              category
+                ? `Search ${category.toLowerCase()} programs by name or ID...`
+                : 'Search all programs by name or ID...'
+            }
             className="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-xl text-sm
               focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600
               placeholder:text-gray-400 shadow-sm"

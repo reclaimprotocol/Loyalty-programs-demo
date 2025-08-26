@@ -5,13 +5,21 @@ interface PaginatedSearchProps<T> {
   itemsPerPage: number;
 }
 
-export const usePaginatedSearch = <T extends { name: string }>({ items, itemsPerPage }: PaginatedSearchProps<T>) => {
+export const usePaginatedSearch = <T extends { name: string; providerId?: string }>({
+  items,
+  itemsPerPage,
+}: PaginatedSearchProps<T>) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Filter items based on search term
+  // Filter items based on search term (searches both name and providerId)
   const filteredItems = useMemo(() => {
-    return items.filter((item) => item.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    return items.filter((item) => {
+      const searchLower = searchTerm.toLowerCase();
+      const nameMatch = item.name.toLowerCase().includes(searchLower);
+      const providerIdMatch = item.providerId?.toLowerCase().includes(searchLower) || false;
+      return nameMatch || providerIdMatch;
+    });
   }, [items, searchTerm]);
 
   // Calculate pagination
