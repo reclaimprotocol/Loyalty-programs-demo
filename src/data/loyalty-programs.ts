@@ -342,13 +342,13 @@ export const providers: Provider[] = [
     description: getProviderDescription('Accor Live Limitless', 7),
   },
   {
-    name: 'Emirates Skywards',
+    name: 'Emirates Airline',
     providerId: '776524f8-a2db-4db9-96a4-66541a7c5c8b',
     websiteUrl: 'https://emirates.com/skywards',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/emirates.com-c6dd727f-cb27-4933-b018-84f2f0a7d8ce.png',
-    category: [LoyaltyProgramCategory.Airlines],
-    description: getProviderDescription('Emirates Skywards', 8),
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.Independent],
+    description: getProviderDescription('Emirates Airline', 8),
   },
   {
     name: 'Qatar Airways Privilege Club',
@@ -592,7 +592,7 @@ export const providers: Provider[] = [
     providerId: 'xxxx35', // confirm and add
     websiteUrl: 'https://www.virginatlantic.com/en-in/my-virgin-atlantic/my-virgin-atlantic-miles',
     logoUrl: '',
-    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.SkyTeam],
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.SkyTeam, LoyaltyProgramCategory.Independent],
     description: getProviderDescription('Virgin Atlantic', 10),
     isEnabled: false,
   },
@@ -670,13 +670,14 @@ export const providers: Provider[] = [
     isEnabled: false,
   },
   {
-    name: 'Etihad Guest',
-    providerId: '580f0e11-1ab6-444c-9ee6-cd7a0c0b372a',
+    name: 'Etihad Airways',
+    providerId: 'xxxx37', // confirm and add
     websiteUrl: 'https://etihadguest.com',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/etihad.com-af282b1d-38ac-497d-9507-ed10aa26f4c8.png',
-    category: [LoyaltyProgramCategory.Airlines],
-    description: getProviderDescription('Etihad Guest', 13),
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.Independent],
+    description: getProviderDescription('Etihad Airways', 13),
+    isEnabled: false,
   },
   {
     name: 'Ubisoft',
@@ -742,13 +743,23 @@ export const providers: Provider[] = [
     description: getProviderDescription('Air Asia BIG Loyalty', 20),
   },
   {
-    name: 'EasyJet Flight Club',
+    name: 'EasyJet Airways',
     providerId: 'ae372da6-b5c0-4ea1-9326-35afbdbdf0fa',
     websiteUrl: 'https://easyjet.com/flight-club',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/easyjet.com-fcc0a3ab-7c3d-43b0-9920-def9981c4ba7.png',
-    category: [LoyaltyProgramCategory.Airlines],
-    description: getProviderDescription('EasyJet Flight Club', 21),
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.Independent],
+    description: getProviderDescription('EasyJet Airways', 21),
+  },
+  {
+    name: 'South West Airlines',
+    providerId: 'xxxx39', // confirm and add
+    websiteUrl: 'https://www.southwest.com/rewards',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/southwest.com-fcc0a3ab-7c3d-43b0-9920-def9981c4ba7.png',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.Independent],
+    description: getProviderDescription('South West Airlines', 21),
+    isEnabled: false,
   },
   {
     name: 'Cathay Pacific Asia Miles',
@@ -760,13 +771,14 @@ export const providers: Provider[] = [
     description: getProviderDescription('Cathay Pacific Asia Miles', 22),
   },
   {
-    name: 'JetBlue TrueBlue',
-    providerId: 'd5724415-c5f4-42f7-bc3c-9808527387f4',
+    name: 'JetBlue Airways',
+    providerId: 'xxxx38', // confirm and add
     websiteUrl: 'https://jetblue.com/trueblue',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/jetblue.com-e23afb96-f111-4248-8d1b-0a7c932abb1e.png',
-    category: [LoyaltyProgramCategory.Airlines],
-    description: getProviderDescription('JetBlue TrueBlue', 23),
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.Independent],
+    description: getProviderDescription('JetBlue Airways', 23),
+    isEnabled: false,
   },
   {
     name: 'Korean Air ',
@@ -810,7 +822,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://ryanair.com/rewards',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/ryanair.com-9bab3b25-aa0d-498b-90a5-a5b7ac4f7c71.png',
-    category: [LoyaltyProgramCategory.Airlines],
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.Independent],
     description: getProviderDescription('Ryanair Rewards', 28),
   },
   {
