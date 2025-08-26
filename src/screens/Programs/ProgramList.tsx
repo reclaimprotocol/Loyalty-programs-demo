@@ -33,18 +33,21 @@ export const ProgramList = (): JSX.Element => {
     ? providers.filter((provider) => provider.category.some((cat) => cat.toLowerCase() === category.toLowerCase()))
     : providers;
 
-  // Apply tab filter if applicable
-  const currentTabConfig = categoryTabsConfig.find((tab) => tab.id === activeTab);
-  const tabFiltered = currentTabConfig?.filter ? routeFiltered.filter(currentTabConfig.filter) : routeFiltered;
+  // Separate enabled and disabled providers, sort each group alphabetically
+  const enabledProviders = routeFiltered
+    .filter((provider) => provider.isEnabled !== false)
+    .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
 
-  const programApps = tabFiltered.slice().sort((a, b) => {
-    // First, sort by isEnabled status (enabled providers first)
-    if (a.isEnabled !== b.isEnabled) {
-      return a.isEnabled ? -1 : 1;
-    }
-    // Then sort alphabetically by name
-    return a.name.localeCompare(b.name, undefined, { sensitivity: 'base' });
-  });
+  const disabledProviders = routeFiltered
+    .filter((provider) => provider.isEnabled === false)
+    .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
+
+  // Combine: enabled providers first, then disabled providers
+  const sortedProviders = [...enabledProviders, ...disabledProviders];
+
+  // Apply tab filter to the sorted providers
+  const currentTabConfig = categoryTabsConfig.find((tab) => tab.id === activeTab);
+  const programApps = currentTabConfig?.filter ? sortedProviders.filter(currentTabConfig.filter) : sortedProviders;
 
   const { currentItems, currentPage, totalPages, searchTerm, setSearchTerm, setCurrentPage, filteredItems } =
     usePaginatedSearch({
