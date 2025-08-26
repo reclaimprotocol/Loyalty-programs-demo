@@ -202,6 +202,7 @@ export const providers: Provider[] = [
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/srilankan.com-bbe345e8-b94e-4dfe-aa41-9dacaa4ad177.png',
     category: [LoyaltyProgramCategory.OneWorldAlliance, LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Srilankan Airways', 0),
+    isEnabled: true,
   },
   {
     name: 'Japan Airline (JAL) ',
@@ -241,6 +242,7 @@ export const providers: Provider[] = [
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/frequentflyer.aero-4fff1b71-d02f-4eb0-bddc-c07e311e8e0f.png',
     category: [LoyaltyProgramCategory.OneWorldAlliance, LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Royal Jordanian', 1),
+    isEnabled: true,
   },
   {
     name: 'Malaysia Airlines',
@@ -250,6 +252,7 @@ export const providers: Provider[] = [
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/malaysiaairlines.com-ecc8f4b9-5c30-45cd-977d-e7c86adcab82.png',
     category: [LoyaltyProgramCategory.OneWorldAlliance, LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Malaysia Airlines', 1),
+    isEnabled: true,
   },
   {
     name: 'MyIberia airline',
@@ -259,6 +262,7 @@ export const providers: Provider[] = [
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/iberia.com-b55a1b13-8d48-4093-b2ad-99fd51b5457b.png',
     category: [LoyaltyProgramCategory.OneWorldAlliance, LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('MyIberia Airlie', 3),
+    isEnabled: true,
   },
 
   {
@@ -269,6 +273,7 @@ export const providers: Provider[] = [
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/qantas.com-26a87515-3e3c-49ac-b43a-235d4633c172.png',
     category: [LoyaltyProgramCategory.OneWorldAlliance, LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Qantas Airlines', 3),
+    isEnabled: true,
   },
   {
     name: 'Hilton Honors',
@@ -295,6 +300,7 @@ export const providers: Provider[] = [
     logoUrl: 'https://www.alaskaair.com/v3/assets/blt2cefe12c88e9dd91/bltb0cd5d132b4088d1/logo-AS-tagline.svg',
     category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.OneWorldAlliance],
     description: getProviderDescription('Alaska Airlines', 2),
+    isEnabled: true,
   },
   {
     name: 'IHG One Rewards',
@@ -306,13 +312,14 @@ export const providers: Provider[] = [
     description: getProviderDescription('IHG One Rewards', 3),
   },
   {
-    name: 'American AAdvantage',
+    name: 'American Airlines',
     providerId: '62f06d19-2122-4cd0-a268-eda0d965b40d',
     websiteUrl: 'https://aa.com/aadvantage',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/aa.com-742c637a-c884-4f3a-89d2-6e9fa4419433.png',
     category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.OneWorldAlliance],
-    description: getProviderDescription('American AAdvantage', 4),
+    description: getProviderDescription('American Airlines', 4),
+    isEnabled: true,
   },
   {
     name: 'Wyndham Rewards',
@@ -356,8 +363,18 @@ export const providers: Provider[] = [
     websiteUrl: 'https://qatarairways.com/privilege-club',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/qatarairways.com-dc711e1a-03bc-4c20-b80a-ebb5b29b8849.png',
-    category: [LoyaltyProgramCategory.Airlines],
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.OneWorldAlliance],
     description: getProviderDescription('Qatar Airways Privilege Club', 9),
+    isEnabled: true,
+  },
+  {
+    name: 'Fiji Airways',
+    providerId: 'xxxx45', // confirm and add
+    websiteUrl: 'https://www.fiji.com/rewards',
+    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/fiji.com-placeholder.png',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.OneWorldAlliance],
+    description: getProviderDescription('Fiji Airways', 9),
+    isEnabled: false,
   },
   {
     name: 'Singapore Airlines KrisFlyer',
@@ -547,6 +564,7 @@ export const providers: Provider[] = [
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/britishairways.com-3a58cdb6-dcdb-4f0d-9ac9-108a4b1773d7.png',
     category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.OneWorldAlliance],
     description: getProviderDescription('British Airways Executive Club', 11),
+    isEnabled: true,
   },
   {
     name: 'Turkish Airlines Miles&Smiles',
@@ -769,6 +787,7 @@ export const providers: Provider[] = [
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/cathaypacific.com-9c8679d9-4209-469e-bb6f-2a06cbebb1c4.png',
     category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.OneWorldAlliance],
     description: getProviderDescription('Cathay Pacific Asia Miles', 22),
+    isEnabled: true,
   },
   {
     name: 'JetBlue Airways',
@@ -806,6 +825,7 @@ export const providers: Provider[] = [
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/finnair.com-b5b28b64-5f41-4113-975f-9939841a4776.png',
     category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.OneWorldAlliance],
     description: getProviderDescription('Finnair Plus', 26),
+    isEnabled: true,
   },
   {
     name: 'Thai Airways Royal Orchid Plus',
