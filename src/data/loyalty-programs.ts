@@ -203,6 +203,35 @@ export const providers: Provider[] = [
     category: [LoyaltyProgramCategory.OneWorldAlliance, LoyaltyProgramCategory.Airlines],
     description: getProviderDescription('Srilankan Airways', 0),
   },
+  {
+    name: 'Japan Airline (JAL) ',
+    providerId: '9637a248-a816-4400-ac40-0a91e86fcd55',
+    websiteUrl: 'https://www.jal.com/en/home',
+    logoUrl: 'https://logos-world.net/wp-content/uploads/2023/01/Japan-Airlines-Logo.png',
+    category: [LoyaltyProgramCategory.OneWorldAlliance, LoyaltyProgramCategory.Airlines],
+    description: getProviderDescription('Japan Airline (JAL)', 10),
+  },
+
+  {
+    name: 'Oman Air',
+    providerId: 'xxxx5', //needs fixing
+    websiteUrl: 'https://www.jal.com/en/home',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/omanair.com-e16b27b6-dc9e-411f-b59c-a9ff6642a0db.png',
+    category: [LoyaltyProgramCategory.OneWorldAlliance, LoyaltyProgramCategory.Airlines],
+    description: getProviderDescription('Oman Air', 10),
+    isEnabled: false,
+  },
+  {
+    name: 'Royal Air Maroc',
+    providerId: 'ff77f410-ef24-4065-9689-ea76ad55b59d', //needs fixing - check and confirm
+    websiteUrl: 'https://www.jal.com/en/home',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/royalairmaroc.com-b0467f8c-f331-4372-b885-938a67e4b35e.png',
+    category: [LoyaltyProgramCategory.OneWorldAlliance, LoyaltyProgramCategory.Airlines],
+    description: getProviderDescription('Royal Air Maroc', 10),
+    isEnabled: true,
+  },
 
   {
     name: 'Royal Jordanian',
@@ -295,12 +324,12 @@ export const providers: Provider[] = [
     description: getProviderDescription('Wyndham Rewards', 5),
   },
   {
-    name: 'United MileagePlus',
+    name: 'United Airlines',
     providerId: 'aa22e99d-9c74-4505-97b6-d68ce49b60cd',
     websiteUrl: 'https://united.com/mileageplus',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/united.com-489a8d2d-085c-44af-b73b-4f8862663546.png',
-    category: [LoyaltyProgramCategory.Airlines],
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
     description: getProviderDescription('United MileagePlus', 6),
   },
   {
@@ -338,6 +367,42 @@ export const providers: Provider[] = [
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/singaporeair.com-ec45540f-0eb2-4b09-af07-9fca0f0901a3.png',
     category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
     description: getProviderDescription('Singapore Airlines KrisFlyer', 10),
+  },
+  {
+    name: 'ANA (All Nippon Airways)',
+    providerId: 'xxxx6', // confirm and add
+    websiteUrl: 'https://www.ana.co.jp/en/customer/membership/anamiles/',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('Singapore Airlines KrisFlyer', 10),
+    isEnabled: false,
+  },
+  {
+    name: 'Swiss International Air Lines',
+    providerId: 'xxxx7', // confirm and add
+    websiteUrl: 'https://www.swiss.com/en-in/my-swiss/my-swiss-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('Swiss International Air Lines', 10),
+    isEnabled: false,
+  },
+  {
+    name: 'Air New Zealand',
+    providerId: 'xxxx8', // confirm and add
+    websiteUrl: 'https://www.airnewzealand.com/en-in/my-air-new-zealand/my-air-new-zealand-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('Air New Zealand', 10),
+    isEnabled: false,
+  },
+  {
+    name: 'EVA Air',
+    providerId: 'xxxx9', // confirm and add
+    websiteUrl: 'https://www.evaair.com/en-in/my-eva-air/my-eva-air-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('EVA Air', 10),
+    isEnabled: false,
   },
   {
     name: 'British Airways Executive Club',
@@ -466,13 +531,13 @@ export const providers: Provider[] = [
     description: getProviderDescription('Korean Air SKYPASS', 24),
   },
   {
-    name: 'SAS EuroBonus',
+    name: 'SAS (Scandinavian Airlines)',
     providerId: '997944df-4a6e-4178-ad89-05dd98e14e30',
     websiteUrl: 'https://sas.se/eurobonus',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/flysas.com-6ab05472-f973-4ac2-86d6-bd9ed4ebbd59.png',
-    category: [LoyaltyProgramCategory.Airlines],
-    description: getProviderDescription('SAS EuroBonus', 25),
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('SAS (Scandinavian Airlines)', 25),
   },
   {
     name: 'Finnair Plus',
