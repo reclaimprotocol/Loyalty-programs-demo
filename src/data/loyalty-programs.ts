@@ -1036,7 +1036,7 @@ export const providers: Provider[] = [
   },
   {
     name: 'Disney Castaway Club',
-    providerId: 'd4e5f6g7-h8i9-0123-4567-890123defghi',
+    providerId: 'xxxx42', // confirm and add
     websiteUrl: 'https://disneycruise.disney.com/castaway-club',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/disneycruise.com-placeholder.png',
@@ -1085,7 +1085,7 @@ export const providers: Provider[] = [
     isEnabled: true,
   },
   {
-    name: 'Princess Cruises',
+    name: 'Princess Captain’s Circle',
     providerId: '00f3fc16-779e-4c5e-880b-aa7deefdd216',
     websiteUrl: 'https://princess.com/captains-circle',
     logoUrl:
@@ -1106,7 +1106,7 @@ export const providers: Provider[] = [
   },
   {
     name: 'Windstar Yacht Club',
-    providerId: 'k1l2m3n4-o5p6-7890-1234-567890klmnop',
+    providerId: 'xxxx43', // confirm and add
     websiteUrl: 'https://windstarcruises.com/yacht-club',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/windstarcruises.com-placeholder.png',
@@ -1116,7 +1116,7 @@ export const providers: Provider[] = [
   },
   {
     name: 'MSC Cruises',
-    providerId: 'l2m3n4o5-p6q7-8901-2345-678901lmnopq',
+    providerId: 'xxxx44', // confirm and add
     websiteUrl: 'https://msccruises.com/rewards',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/msccruises.com-placeholder.png',
@@ -1133,6 +1133,24 @@ export const providers: Provider[] = [
     category: [LoyaltyProgramCategory.Cruises],
     description: getProviderDescription('Virgin Voyages', 60),
     isEnabled: true,
+  },
+  {
+    name: 'Azamara Circle',
+    providerId: 'xxxx40', // confirm and add
+    websiteUrl: 'https://azamara.com/rewards',
+    logoUrl: 'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/azamara.com-placeholder.png',
+    category: [LoyaltyProgramCategory.Cruises],
+    description: getProviderDescription('Azamara Circle', 60),
+    isEnabled: false,
+  },
+  {
+    name: 'Celebrity Cruises Captain’s Club',
+    providerId: 'xxxx41', // confirm and add
+    websiteUrl: 'https://avis.com/preferred',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Cruises],
+    description: getProviderDescription('Avis Preferred', 60),
+    isEnabled: false,
   },
 ];
 
