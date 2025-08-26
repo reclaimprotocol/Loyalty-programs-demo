@@ -285,7 +285,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://delta.com/skymiles',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/delta.com-9d14140c-1792-45c8-8bf6-d5b2c3dcc19d.png',
-    category: [LoyaltyProgramCategory.Airlines],
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.SkyTeam],
     description: getProviderDescription('Delta SkyMiles', 2),
   },
   {
@@ -558,6 +558,118 @@ export const providers: Provider[] = [
     description: getProviderDescription('Turkish Airlines Miles&Smiles', 12),
   },
   {
+    name: 'Aerolíneas Argentinas',
+    providerId: 'xxxx25', // confirm and add
+    websiteUrl: 'https://www.chinaeastern.com/en-in/my-china-eastern/my-china-eastern-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.SkyTeam],
+    description: getProviderDescription('China Eastern Sky Pearl Club', 10),
+    isEnabled: false,
+  },
+
+  {
+    name: 'Tarom',
+    providerId: 'xxxx33', // confirm and add
+    websiteUrl: 'https://www.tarom.ro/en-in/my-tarom/my-tarom-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.SkyTeam],
+    description: getProviderDescription('Tarom', 10),
+    isEnabled: false,
+  },
+
+  {
+    name: 'Vietnam Airlines',
+    providerId: 'xxxx34', // confirm and add
+    websiteUrl: 'https://www.vietnamairlines.com/en-in/my-vietnam-airlines/my-vietnam-airlines-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.SkyTeam],
+    description: getProviderDescription('Vietnam Airlines', 10),
+    isEnabled: false,
+  },
+
+  {
+    name: 'Virgin Atlantic',
+    providerId: 'xxxx35', // confirm and add
+    websiteUrl: 'https://www.virginatlantic.com/en-in/my-virgin-atlantic/my-virgin-atlantic-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.SkyTeam],
+    description: getProviderDescription('Virgin Atlantic', 10),
+    isEnabled: false,
+  },
+
+  {
+    name: 'Xiamen Airlines',
+    providerId: 'xxxx36', // confirm and add
+    websiteUrl: 'https://www.xiamenair.com/en-in/my-xiamen-airlines/my-xiamen-airlines-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.SkyTeam],
+    description: getProviderDescription('Xiamen Airlines', 10),
+    isEnabled: false,
+  },
+  {
+    name: 'Middle East Airlines',
+    providerId: 'xxxx31', // confirm and add
+    websiteUrl: 'https://www.middleeastairlines.com/en-in/my-middle-east-airlines/my-middle-east-airlines-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.SkyTeam],
+    description: getProviderDescription('Middle East Airlines', 30),
+    isEnabled: false,
+  },
+  {
+    name: 'Saudi Arabian Airlines',
+    providerId: 'xxxx32', // confirm and add
+    websiteUrl: 'https://www.saudia.com/en-in/my-saudia/my-saudia-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.SkyTeam],
+    description: getProviderDescription('Saudi Arabian Airlines', 30),
+    isEnabled: false,
+  },
+  {
+    name: 'Air Europa',
+    providerId: 'xxxx26', // confirm and add
+    websiteUrl: 'https://www.aireuropa.com/en-in/my-air-europa/my-air-europa-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.SkyTeam],
+    description: getProviderDescription('Air Europa', 20),
+    isEnabled: false,
+  },
+  {
+    name: 'Garuda Indonesia',
+    providerId: 'xxxx28', // confirm and add
+    websiteUrl: 'https://www.garuda-indonesia.com/en-in/my-garuda-indonesia/my-garuda-indonesia-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.SkyTeam],
+    description: getProviderDescription('Garuda Indonesia', 10),
+    isEnabled: false,
+  },
+  {
+    name: 'Kenya Airways',
+    providerId: 'xxxx29', // confirm and add
+    websiteUrl: 'https://www.kenyaairways.com/en-in/my-kenya-airways/my-kenya-airways-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.SkyTeam],
+    description: getProviderDescription('Kenya Airways', 30),
+    isEnabled: false,
+  },
+  {
+    name: 'KLM Airlines',
+    providerId: 'xxxx30', // confirm and add
+    websiteUrl: 'https://www.klm.com/en-in/my-klm/my-klm-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.SkyTeam],
+    description: getProviderDescription('KLM Airlines', 20),
+    isEnabled: false,
+  },
+  {
+    name: 'China Airlines',
+    providerId: 'xxxx27', // confirm and add
+    websiteUrl: 'https://www.airchina.com/en-in/my-air-china/my-air-china-miles',
+    logoUrl: '',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.SkyTeam],
+    description: getProviderDescription('Air China', 30),
+    isEnabled: false,
+  },
+  {
     name: 'Etihad Guest',
     providerId: '580f0e11-1ab6-444c-9ee6-cd7a0c0b372a',
     websiteUrl: 'https://etihadguest.com',
@@ -657,13 +769,13 @@ export const providers: Provider[] = [
     description: getProviderDescription('JetBlue TrueBlue', 23),
   },
   {
-    name: 'Korean Air SKYPASS',
+    name: 'Korean Air ',
     providerId: '9db43368-548d-4f40-8656-29c3798f45bf',
     websiteUrl: 'https://koreanair.com/skypass',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/koreanair.com-8944ca09-5fcf-4476-82dd-6c5dbad87418.png',
-    category: [LoyaltyProgramCategory.Airlines],
-    description: getProviderDescription('Korean Air SKYPASS', 24),
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.SkyTeam],
+    description: getProviderDescription('Korean Air', 24),
   },
   {
     name: 'SAS (Scandinavian Airlines)',
@@ -671,7 +783,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://sas.se/eurobonus',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/flysas.com-6ab05472-f973-4ac2-86d6-bd9ed4ebbd59.png',
-    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance, LoyaltyProgramCategory.SkyTeam],
     description: getProviderDescription('SAS (Scandinavian Airlines)', 25),
   },
   {
@@ -707,7 +819,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://global.csair.com/skypearl',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/csair.com-0744a8c3-b451-41a0-a671-830e90161880.png',
-    category: [LoyaltyProgramCategory.Airlines],
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.SkyTeam],
     description: getProviderDescription('China Southern Sky Pearl Club', 29),
   },
   {
