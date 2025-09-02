@@ -1046,13 +1046,13 @@ export const providers: Provider[] = [
   },
   {
     name: "Celebrity Cruises Captain's Club",
-    providerId: 'c3d4e5f6-g7h8-9012-3456-789012cdefgh',
+    providerId: '2e2b30e3-e866-4d03-968c-2273319d2744',
     websiteUrl: 'https://celebrity.com/captains-club',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/celebrity.com-placeholder.png',
     category: [LoyaltyProgramCategory.Cruises],
     description: getProviderDescription("Celebrity Cruises Captain's Club", 50),
-    isEnabled: false,
+    isEnabled: true,
   },
   {
     name: 'Disney Castaway Club',
