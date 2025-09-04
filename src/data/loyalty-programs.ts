@@ -205,6 +205,15 @@ export const providers: Provider[] = [
     isEnabled: true,
   },
   {
+    name: 'Caribbean Airlines Caribbean Miles',
+    providerId: '7f721509-402c-4a13-b678-a2e88e0bc70f',
+    websiteUrl: 'https://www.caribbeanairlines.com',
+    logoUrl: 'https://caribbeanairlines.frequentflyer.aero/pub/app/img/bwa/logo.png',
+    category: [LoyaltyProgramCategory.OneWorldAlliance, LoyaltyProgramCategory.Airlines],
+    description: getProviderDescription('Caribbean Airlines Caribbean Miles', 20),
+    isEnabled: true,
+  },
+  {
     name: 'Japan Airline (JAL) ',
     providerId: '9637a248-a816-4400-ac40-0a91e86fcd55',
     websiteUrl: 'https://www.jal.com/en/home',
@@ -1126,13 +1135,13 @@ export const providers: Provider[] = [
   },
   {
     name: 'Windstar Yacht Club',
-    providerId: 'xxxx43', // confirm and add
+    providerId: 'ec95a267-ccb7-44f5-909f-0e558e9aedb1', // confirm and add
     websiteUrl: 'https://windstarcruises.com/yacht-club',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/windstarcruises.com-placeholder.png',
     category: [LoyaltyProgramCategory.Cruises],
     description: getProviderDescription('Windstar Yacht Club', 58),
-    isEnabled: false,
+    isEnabled: true,
   },
   {
     name: 'MSC Cruises',
