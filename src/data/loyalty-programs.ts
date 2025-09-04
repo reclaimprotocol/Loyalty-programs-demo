@@ -331,6 +331,16 @@ export const providers: Provider[] = [
     isEnabled: true,
   },
   {
+    name: 'LATAM Pass',
+    providerId: '1350fd3d-ce38-4b01-9aba-cc615ee9350a',
+    websiteUrl: 'https://latam.com/latam-pass',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/latamairlines.com-9263e97d-0b85-4e42-8910-eb475bb3e2c4.png',
+    category: [LoyaltyProgramCategory.Airlines],
+    description: getProviderDescription('American Airlines', 4),
+    isEnabled: true,
+  },
+  {
     name: 'Wyndham Rewards',
     providerId: 'd74891b8-bcd4-400e-98c5-64eb2b6aaa13',
     websiteUrl: 'https://wyndhamhotels.com/rewards',
@@ -1125,13 +1135,13 @@ export const providers: Provider[] = [
   },
   {
     name: 'Royal Caribbean Crown & Anchor Society',
-    providerId: 'j0k1l2m3-n4o5-6789-0123-456789jklmno',
+    providerId: 'fff0e92c-fe16-45ff-8e11-4a323ce7bbdc',
     websiteUrl: 'https://royalcaribbean.com/crown-anchor',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/royalcaribbean.com-placeholder.png',
     category: [LoyaltyProgramCategory.Cruises],
     description: getProviderDescription('Royal Caribbean Crown & Anchor Society', 57),
-    isEnabled: false,
+    isEnabled: true,
   },
   {
     name: 'Windstar Yacht Club',
