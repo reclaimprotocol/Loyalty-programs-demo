@@ -1068,7 +1068,7 @@ export const providers: Provider[] = [
     providerId: '2e2b30e3-e866-4d03-968c-2273319d2744',
     websiteUrl: 'https://celebrity.com/captains-club',
     logoUrl:
-      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/celebrity.com-placeholder.png',
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/celebritycruises.com-f6a1fb07-7887-49d8-a493-9b825526a617.png',
     category: [LoyaltyProgramCategory.Cruises],
     description: getProviderDescription("Celebrity Cruises Captain's Club", 50),
     isEnabled: true,
@@ -1134,13 +1134,13 @@ export const providers: Provider[] = [
     isEnabled: true,
   },
   {
-    name: 'Royal Caribbean Crown & Anchor Society',
+    name: 'Royal Carribean Cruises',
     providerId: 'fff0e92c-fe16-45ff-8e11-4a323ce7bbdc',
     websiteUrl: 'https://royalcaribbean.com/crown-anchor',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/royalcaribbean.com-624388ce-02bb-4aa5-91a1-f1c259e01cd8.png',
     category: [LoyaltyProgramCategory.Cruises],
-    description: getProviderDescription('Royal Caribbean Crown & Anchor Society', 57),
+    description: getProviderDescription('Royal Carribean Cruises', 57),
     isEnabled: true,
   },
   {
