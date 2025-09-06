@@ -810,13 +810,13 @@ export const providers: Provider[] = [
   },
   {
     name: 'JetBlue Airways',
-    providerId: 'xxxx38', // confirm and add
+    providerId: 'd5724415-c5f4-42f7-bc3c-9808527387f4', // confirm and add
     websiteUrl: 'https://jetblue.com/trueblue',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/jetblue.com-e23afb96-f111-4248-8d1b-0a7c932abb1e.png',
     category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.Independent],
     description: getProviderDescription('JetBlue Airways', 23),
-    isEnabled: false,
+    isEnabled: true,
   },
   {
     name: 'Korean Air ',
