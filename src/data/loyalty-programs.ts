@@ -542,12 +542,13 @@ export const providers: Provider[] = [
   },
   {
     name: 'Avianca Airlines',
-    providerId: 'xxxx19', // confirm and add
+    providerId: '1ece714f-b0c0-4420-9b3c-954d3ff3536d',
     websiteUrl: 'https://www.aviana.com/en-in/my-aviana/my-aviana-miles',
-    logoUrl: '',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/lifemiles.com-12524c9d-58d5-4eed-8167-b0d97a243301.png',
     category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
     description: getProviderDescription('Avianca Airlines', 10),
-    isEnabled: false,
+    isEnabled: true,
   },
   {
     name: 'Asiana Airlines',
