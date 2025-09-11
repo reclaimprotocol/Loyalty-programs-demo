@@ -505,12 +505,13 @@ export const providers: Provider[] = [
   },
   {
     name: 'Copa Airlines',
-    providerId: 'xxxx21', // confirm and add
+    providerId: 'b7056c7d-c536-4659-b729-5f079baaf1f1',
     websiteUrl: 'https://www.copaair.com/en-in/my-copa-airlines/my-copa-airlines-miles',
-    logoUrl: '',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/copaair.com-9c71ae3d-5252-49d0-b2a6-3d6a625287f8.png',
     category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
     description: getProviderDescription('Copa Airlines', 10),
-    isEnabled: false,
+    isEnabled: true,
   },
   {
     name: 'Croatia Airlines',
