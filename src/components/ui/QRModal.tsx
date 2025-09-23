@@ -150,11 +150,32 @@ export const QRModal = ({ isOpen, onClose, provider }: QRModalProps) => {
       console.log('Context data:', contextData);
       console.log('Extracted parameters:', contextData.extractedParameters);
 
+      // Get public data from the proof
+      const publicData = proofs[0].publicData;
+      console.log('Public data:', publicData);
+
+      // Parse public data safely
+      let parsedPublicData = null;
+      if (publicData) {
+        try {
+          parsedPublicData = JSON.parse(publicData);
+        } catch (error) {
+          console.error('Failed to parse public data:', error);
+        }
+      }
+
+      // Combine context parameters and public data
+      const combinedData = {
+        ...contextData.extractedParameters,
+        ...(parsedPublicData || {}),
+      };
+
       return (
         <div className="flex flex-col items-center w-full">
           <div className="w-full bg-gray-50 rounded-xl p-4 overflow-auto max-h-[400px]">
+            <h4 className="text-sm font-medium text-gray-600 mb-3">Context Parameters</h4>
             <JSONTree
-              data={contextData.extractedParameters || {}}
+              data={combinedData}
               theme={{
                 base00: '#ffffff',
                 base01: '#2a2a2a',
@@ -179,7 +200,7 @@ export const QRModal = ({ isOpen, onClose, provider }: QRModalProps) => {
           </div>
           <button
             onClick={onClose}
-            className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+            className="mt-4 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium"
           >
             Close
           </button>
