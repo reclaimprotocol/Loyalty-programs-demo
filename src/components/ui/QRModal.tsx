@@ -173,7 +173,7 @@ export const QRModal = ({ isOpen, onClose, provider }: QRModalProps) => {
       return (
         <div className="flex flex-col items-center w-full">
           <div className="w-full bg-gray-50 rounded-xl p-4 overflow-auto max-h-[400px]">
-            <h4 className="text-sm font-medium text-gray-600 mb-3">Context Parameters</h4>
+            <h4 className="text-sm font-medium text-gray-600 mb-3">Verified Data</h4>
             <JSONTree
               data={combinedData}
               theme={{
