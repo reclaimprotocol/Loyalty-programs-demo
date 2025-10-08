@@ -533,12 +533,13 @@ export const providers: Provider[] = [
   },
   {
     name: 'Tap Air Portugal',
-    providerId: 'xxxx24', // confirm and add
+    providerId: '0ace900f-3288-4378-9f36-55c9d697f9a9',
     websiteUrl: 'https://www.flytap.com/en-in/my-tap/my-tap-miles',
-    logoUrl: '',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/flytap.com-ec650a63-cd5c-427d-9f59-f4ea00b35c85.png',
     category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
     description: getProviderDescription('Tap Air Portugal', 20),
-    isEnabled: false,
+    isEnabled: true,
   },
   {
     name: 'Avianca Airlines',
