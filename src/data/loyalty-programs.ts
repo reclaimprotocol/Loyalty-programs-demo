@@ -684,12 +684,13 @@ export const providers: Provider[] = [
   },
   {
     name: 'Kenya Airways',
-    providerId: 'xxxx29', // confirm and add
+    providerId: 'e063151e-162c-435a-8fa9-5c27e4df0903', // confirm and add
     websiteUrl: 'https://www.kenyaairways.com/en-in/my-kenya-airways/my-kenya-airways-miles',
-    logoUrl: '',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/kenya-airways.com-2c13ad09-c7f2-4505-bb24-51f203637f9b.png',
     category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.SkyTeam],
     description: getProviderDescription('Kenya Airways', 30),
-    isEnabled: false,
+    isEnabled: true,
   },
   {
     name: 'KLM Airlines',
