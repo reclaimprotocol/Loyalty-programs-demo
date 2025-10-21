@@ -295,7 +295,7 @@ export const providers: Provider[] = [
   },
   {
     name: 'Delta SkyMiles',
-    providerId: '4688ad77-413d-4714-84bd-36dbce9f6d6d',
+    providerId: 'e868e290-4c15-4e73-9b6f-9109cd1c6736',
     websiteUrl: 'https://delta.com/skymiles',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/delta.com-9d14140c-1792-45c8-8bf6-d5b2c3dcc19d.png',
@@ -842,7 +842,7 @@ export const providers: Provider[] = [
   },
   {
     name: 'Finnair Plus',
-    providerId: '7c3282f4-7c3b-4714-aaa7-75e58cada6bb',
+    providerId: 'ddd6c29c-baa6-437f-b1ef-1c4c3d44cd75',
     websiteUrl: 'https://finnair.com/plus',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/finnair.com-b5b28b64-5f41-4113-975f-9939841a4776.png',
