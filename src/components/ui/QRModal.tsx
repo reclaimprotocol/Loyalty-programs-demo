@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import QRCode from 'react-qr-code';
 import { Modal } from './Modal';
 import { Camera, LogIn, Clock, X, Shield, ExternalLink } from 'lucide-react';
@@ -18,8 +18,6 @@ interface QRModalProps {
 }
 
 export const QRModal = ({ isOpen, onClose, provider }: QRModalProps) => {
-  const [isLoading, setIsLoading] = useState(true);
-
   const [requestUrl, setRequestUrl] = useState<string | null>(null);
   const [proofs, setProofs] = useState<any[]>([]);
   const [loadingState, setLoadingState] = useState({ type: 'none', step: 'none' });
@@ -67,6 +65,9 @@ export const QRModal = ({ isOpen, onClose, provider }: QRModalProps) => {
             if (typeof proofs === 'string') {
               // Parse the string into an object
               const parsedProof = JSON.parse(proofs);
+
+              console.log('Parsed proof:', parsedProof);
+              console.log('Proofs:', proofs);
               setProofs([parsedProof]);
             } else if (typeof proofs !== 'string') {
               if (Array.isArray(proofs)) {
@@ -154,28 +155,49 @@ export const QRModal = ({ isOpen, onClose, provider }: QRModalProps) => {
       const publicData = proofs[0].publicData;
       console.log('Public data:', publicData);
 
-      // Parse public data safely
+      // Handle public data - it could be a string or already an object
       let parsedPublicData = null;
       if (publicData) {
         try {
-          parsedPublicData = JSON.parse(publicData);
+          // If it's already an object, use it directly
+          if (typeof publicData === 'object') {
+            parsedPublicData = publicData;
+          } else {
+            // If it's a string, parse it
+            parsedPublicData = JSON.parse(publicData);
+          }
         } catch (error) {
           console.error('Failed to parse public data:', error);
         }
       }
 
-      // Combine context parameters and public data
-      const combinedData = {
+      // Create comprehensive data object with all available information
+      const allData = {
         ...contextData.extractedParameters,
         ...(parsedPublicData || {}),
       };
+
+      // Also include any additional data from the proof structure
+      if (proofs[0].signatures) {
+        allData.signatures = proofs[0].signatures;
+      }
+
+      if (proofs[0].claimData) {
+        // Add claim data fields that might contain useful info
+        if (proofs[0].claimData.provider) {
+          allData.provider = proofs[0].claimData.provider;
+        }
+        if (proofs[0].claimData.timestampS) {
+          allData.timestamp = new Date(proofs[0].claimData.timestampS * 1000).toISOString();
+        }
+      }
 
       return (
         <div className="flex flex-col items-center w-full">
           <div className="w-full bg-gray-50 rounded-xl p-4 overflow-auto max-h-[400px]">
             <h4 className="text-sm font-medium text-gray-600 mb-3">Verified Data</h4>
             <JSONTree
-              data={combinedData}
+              data={allData}
               theme={{
                 base00: '#ffffff',
                 base01: '#2a2a2a',
@@ -195,7 +217,6 @@ export const QRModal = ({ isOpen, onClose, provider }: QRModalProps) => {
                 base0F: '#795548',
               }}
               hideRoot
-              shouldExpandNode={() => true}
             />
           </div>
           <button
@@ -238,7 +259,7 @@ export const QRModal = ({ isOpen, onClose, provider }: QRModalProps) => {
         return (
           <div className="flex flex-col items-center">
             <div className="bg-white p-4 rounded-xl shadow-sm">
-              <QRCode value={requestUrl} size={200} />
+              <QRCode value={requestUrl} size={200} title="QR Code for verification" />
             </div>
             <p className="mt-4 text-sm text-gray-500">Scan the QR code to verify your credentials</p>
             <div className="mt-6">
