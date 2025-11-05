@@ -794,13 +794,13 @@ export const providers: Provider[] = [
   },
   {
     name: 'South West Airlines',
-    providerId: 'xxxx39', // confirm and add
+    providerId: '21247a2f-1f39-48a5-bb4b-e0c495aa6e75',
     websiteUrl: 'https://www.southwest.com/rewards',
     logoUrl:
-      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/southwest.com-fcc0a3ab-7c3d-43b0-9920-def9981c4ba7.png',
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/southwest.com-c838588a-04e3-416a-8b6a-eae9470621fd.png',
     category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.Independent],
     description: getProviderDescription('South West Airlines', 21),
-    isEnabled: false,
+    isEnabled: true,
   },
   {
     name: 'Cathay Pacific Asia Miles',
