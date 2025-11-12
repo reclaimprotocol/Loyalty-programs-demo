@@ -36,24 +36,27 @@ export const QRModal = ({ isOpen, onClose, provider }: QRModalProps) => {
 
       const PROVIDER_ID = provider.providerId;
       // Check if device is mobile
-      const isMobile =
-        /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()) ||
-        (typeof window.orientation !== 'undefined' ? window.orientation : -1) > -1;
+      // const isMobile =
+      //   /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()) ||
+      //   (typeof window.orientation !== 'undefined' ? window.orientation : -1) > -1;
 
       // Check if device is iOS
-      const isIOS = /mac|iphone|ipad|ipod/i.test(navigator.userAgent.toLowerCase()) || false;
+      //const isIOS = /mac|iphone|ipad|ipod/i.test(navigator.userAgent.toLowerCase()) || false;
 
       // Determine device type
-      const deviceType = isMobile ? (isIOS ? 'ios' : 'android') : 'desktop';
+      //const deviceType = isMobile ? (isIOS ? 'ios' : 'android') : 'desktop';
 
       // Initialize the Reclaim SDK with your credentials
       const reclaimProofRequest = await ReclaimProofRequest.init(APP_ID, APP_SECRET, PROVIDER_ID, {
-        device: deviceType,
-        useAppClip: deviceType !== 'desktop',
+        useAppClip: false,
+        customSharePageUrl: 'https://portal.reclaimprotocol.org',
       });
       // Generate the verification request URL
       const requestUrl = await reclaimProofRequest.getRequestUrl();
       console.log('Request URL:', requestUrl);
+
+      window.open(requestUrl, '_blank');
+
       setRequestUrl(requestUrl);
       setLoadingState({ type: 'none', step: 'none' });
 
