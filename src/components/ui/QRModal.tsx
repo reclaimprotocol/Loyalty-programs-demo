@@ -52,6 +52,8 @@ export const QRModal = ({ isOpen, onClose, provider }: QRModalProps) => {
         useAppClip: deviceType !== 'desktop',
       });
       // Generate the verification request URL
+
+      reclaimProofRequest.setRedirectUrl(`${window.location.origin}/success`);
       const requestUrl = await reclaimProofRequest.getRequestUrl();
       console.log('Request URL:', requestUrl);
       setRequestUrl(requestUrl);
