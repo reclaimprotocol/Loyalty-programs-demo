@@ -1038,6 +1038,36 @@ export const providers: Provider[] = [
     category: [LoyaltyProgramCategory.CarRentals],
     description: getProviderDescription('National Car Emerald Club', 47),
   },
+  {
+    name: 'Hertz Car Rental Membership',
+    providerId: '3e5f631d-d5c8-4036-96ef-705c3680d9da',
+    websiteUrl: 'https://expedia.com',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/hertz.com-a1af1e8d-c717-4621-82bb-0b47b52950cc.png',
+    category: [LoyaltyProgramCategory.CarRentals],
+    description: getProviderDescription('National Car Emerald Club', 47),
+  },
+
+  {
+    name: 'Qeek Rewards',
+    providerId: '7b8bcb46-e9af-404e-8ee8-90ef6efa0a25',
+    websiteUrl: 'https://expedia.com',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/qeeq.com-2639e425-8a68-4539-a093-17e4c9a39c00.png',
+    category: [LoyaltyProgramCategory.CarRentals],
+    description: getProviderDescription('Qeek Rewards', 47),
+  },
+
+  {
+    name: 'Avis Membership Plus',
+    providerId: '5d5d2584-b560-4d49-a521-5f4eb9154396',
+    websiteUrl: 'https://expedia.com',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/avis.com-72fcca35-fb70-4eb3-8771-e825fa6ab102.png',
+    category: [LoyaltyProgramCategory.CarRentals],
+    description: getProviderDescription('Avis Membership Plus', 47),
+  },
+
   // {
   //   name: 'x',
   //   providerId: '2523321f-f61d-4db3-b4e6-e665af5efdc1',
