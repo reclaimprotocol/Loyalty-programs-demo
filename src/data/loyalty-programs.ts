@@ -422,6 +422,17 @@ export const providers: Provider[] = [
     description: getProviderDescription('Swiss International Air Lines', 10),
     isEnabled: false,
   },
+
+  {
+    name: 'ITA Volare Loyalty Status',
+    providerId: 'c4e40d2d-22e2-4d32-b4e7-b58fbbb8d588',
+    websiteUrl: 'https://www.ita-airways.com/en-in/my-ita-airways/my-ita-airways-miles',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/ita-airways.com-0f71876a-c483-4cdb-8b3f-34173ffb7249.png',
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance],
+    description: getProviderDescription('Swiss International Air Lines', 10),
+    isEnabled: true,
+  },
   {
     name: 'Air New Zealand',
     providerId: 'xxxx8', // confirm and add
@@ -837,7 +848,7 @@ export const providers: Provider[] = [
     websiteUrl: 'https://sas.se/eurobonus',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/flysas.com-6ab05472-f973-4ac2-86d6-bd9ed4ebbd59.png',
-    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.StarAlliance, LoyaltyProgramCategory.SkyTeam],
+    category: [LoyaltyProgramCategory.Airlines, LoyaltyProgramCategory.SkyTeam],
     description: getProviderDescription('SAS (Scandinavian Airlines)', 25),
   },
   {
