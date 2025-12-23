@@ -186,6 +186,24 @@ const getProviderDescription = (brandName: string, index: number): string => {
 
 export const providers: Provider[] = [
   {
+    name: 'WestJet Tier Status',
+    providerId: 'f9cdd9be-63c2-4267-8605-96b5ec50b9c2',
+    websiteUrl: 'https://www.westjet.com',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/westjet.com-acecedfd-77ea-4ed9-9300-da710039c690.png',
+    category: [LoyaltyProgramCategory.Airlines],
+    description: getProviderDescription('WestJet Tier Status', 1),
+  },
+  {
+    name: 'airBaltic',
+    providerId: 'd4493b4f-edac-4447-b18e-901f7c5337b6',
+    websiteUrl: 'https://www.airbaltic.com',
+    logoUrl:
+      'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/airbaltic.com-ef9420b0-b8f2-4d80-8f37-6123fcd68177.png',
+    category: [LoyaltyProgramCategory.Airlines],
+    description: getProviderDescription('airBaltic', 0),
+  },
+  {
     name: 'Marriott Bonvoy',
     providerId: 'db48def1-4602-4672-82be-311ea5a779e3',
     websiteUrl: 'https://marriott.com/bonvoy',
@@ -295,7 +313,7 @@ export const providers: Provider[] = [
   },
   {
     name: 'Delta SkyMiles',
-    providerId: 'e868e290-4c15-4e73-9b6f-9109cd1c6736',
+    providerId: 'b8ad84f6-d6fc-476b-b40d-be2c4d51eb54',
     websiteUrl: 'https://delta.com/skymiles',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/delta.com-9d14140c-1792-45c8-8bf6-d5b2c3dcc19d.png',
