@@ -934,8 +934,8 @@ export const providers: Provider[] = [
     description: getProviderDescription('Virgin Australia Velocity', 32),
   },
   {
-    name: 'Air Canada Aeroplan',
-    providerId: '8a571248-4cfe-4866-a1b4-f767bec656d4',
+    name: 'Air Canada ',
+    providerId: '54a9db43-e935-4dcc-8fe2-7b3365b8e8bd',
     websiteUrl: 'https://aircanada.com/aeroplan',
     logoUrl:
       'https://devtool-images.s3.ap-south-1.amazonaws.com/http-provider-brand-logos/aircanada.com-c62c6ce4-c619-445f-a002-5a666ed0998c.png',
